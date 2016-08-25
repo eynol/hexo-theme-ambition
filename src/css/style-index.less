@@ -1,0 +1,112 @@
+// @import 'lib-rem';
+
+
+.section-most {
+    position: relative;
+
+    height: 100%;
+
+    background: url("../img/yellow-metal.jpg") no-repeat 100%   ;
+
+    article {
+        position: absolute;
+        bottom: 4rem;
+
+        width: 80%;
+        padding: 3rem;
+
+        transition: .5s ease;
+        transform: translate3D(0,0,0);
+        animation: slide-in 2283ms 0s ease-out;
+
+
+
+        
+        background-color: rgba(255, 255, 255, .66);
+    }
+    h1 {
+        display: inline-block;
+        padding: 1rem;
+
+        color: #fff;
+        background-color: #000;
+    }
+    p {
+        display: inline-block;
+        width: 70%;
+        padding-left: .7rem;
+
+        line-height: 1.4;
+
+        text-align: left;
+        letter-spacing: 1.8px;
+
+        border-left: solid;
+    }
+}
+@media screen and (max-width:400px) {
+    .section-most {
+        h1 {
+            display: block;
+        }
+        article {
+            padding: 1rem;
+        }
+        p {
+            width: 100%;
+        }
+    }
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateY(4rem);
+
+        opacity: 0;
+    }
+    47% {
+        transform: translateY(4rem);
+
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0%);
+
+        opacity: 1;
+    }
+}
+
+
+.passion {
+    max-width: 800px;
+    padding: 3rem 2rem;
+    margin: auto;
+
+
+    hgroup {
+        text-align: center;
+    }
+    p {
+        margin: .7rem 0;
+
+        line-height: 1.4;
+
+        text-indent: 2rem;
+        letter-spacing: 1.8px;
+    }
+}
+
+.counter {
+    text-align: center;
+    .clock {
+        font-size: 3rem;
+        span {
+            display: inline-block;
+            margin: 0 5px;
+
+            font-size: 6rem;
+
+            white-space: nowrap;
+        }
+    }
+}
