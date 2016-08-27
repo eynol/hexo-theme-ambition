@@ -1,9 +1,13 @@
-@import "lib-reset";
-// @import "lib-mixins";
+@import "lib-reset"; // @import "lib-mixins";
 ////////////////////////////
 // global variabl commmon
 //////////////////////
 @yellow: #fff500;
+
+@title-color:#2f2f2f;
+@title-color2:#404040;
+@gray:#c8c8c8;
+
 ////////////////////////////////////////
 //  global style common
 ///////////////////////////////////////
@@ -19,6 +23,9 @@
         display: table;
         clear: both;
     }
+}
+.text-center{
+  text-align:center;
 }
 .link {
     margin: 0 5px;
@@ -61,15 +68,24 @@
 ///////////////////////////////////////////////////
 //           reset my font
 //////////////////////////////////////////////////
-a,
-p {
-    font: 300 1rem "Microsoft Yahei";
+a {
+
+    font-size:1rem;
     font-weight: 300;
     text-decoration: none;
     color: #4a4a4a;
 }
 .thin() {
     font-weight: 100;
+}
+p {
+    font-size:1rem;
+    font-weight:400;
+    letter-spacing: 0.03rem;
+    line-height: 1.7;
+    margin: 0.5rem 0;
+    color:@title-color;
+    text-align:justify;
 }
 /////////////////////////////////////////////////
 //  header common
@@ -220,9 +236,13 @@ p {
 ////////////////////////////////////////////////////////////
 .main-wrapper {
     width: 100%;
-    &.hold {
-        margin-top: 80px;
-    }
+    margin-top: 80px;
+
+}
+
+.center-wrapper {
+    width: 700px;
+    margin: auto;
 }
 ///////////////////////////////////////////////////////////
 //  content different
@@ -240,18 +260,16 @@ p {
     // display: inline-block;
     background-color: rgba(255, 255, 255, .77);
 }
-.preview {
-    width: 700px;
-    margin: auto;
-}
+
 .title {
-    margin-bottom: 0.3rem;
+    margin-bottom: 0;
 }
 .title a {
     font-size: 1.7rem;
     font-weight: 600;
-    color: black;
+    color: @title-color;
 }
+
 .detail {
     font-size: 0.7rem;
     margin-bottom: 0.3rem;
@@ -259,31 +277,104 @@ p {
         .link;
         font-size: 0.7rem;
     }
-    time{
-      position:relative;
-      transition:.5s;
-
-      &:before{
-      display:inline;
-      content:attr(datetime);
-      width:0;
-      }
-      &:hover{
-        &:before{
-
-        content:attr(datetime);
-        width:auto;
+    time {
+        position: relative;
+        transition: 0.3s;
+        display: inline-block;
+        width: 10em;
+        transform-style: preserve-3d;
+        perspective: 2000px;
+        perspective-origin:bottom;
+        &:before {
+            display: block;
+            content: attr(datetime);
+            position: absolute;
+            word-break: keep-all;
+            white-space: nowrap;
+            // background-color: @yellow;
+            transform: rotateX(-90deg) translateZ(1em);
+            // opacity:0;
+            transition: 0.3s;
         }
-      }
+        & span {
+            display: inline-block;
+            transition: 0.3s;
+            transform: rotateX(0deg) translateZ(1em);
+        }
+        &:hover {
+            & span {
+                // opacity: 0;
+                  // perspective-origin: 50% 50%;
+                transform: rotateX(90deg) translateZ(1em);
+            }
+            &:before {
+                transform: rotateX(0deg) translateZ(1em);
+                opacity: 1;
+            }
+        }
     }
 }
 .brief {
     a {
-      display:inline-block;//make the words in a single line;
-      text-decoration:underline;
-      .link;
+        display: inline-block; //make the words in a single line;
+        text-decoration: underline;
+        .link;
     }
 }
+
+
+.quick-contents{
+  text-align:left;
+  padding:1rem;
+  padding-left:0;
+  a{
+    .link;
+  }
+}
+
+
+.article-intro {
+  padding-top:2rem;
+  .title a{
+    font-size:2rem;
+  }
+}
+
+.article{
+
+  color:#fff;
+  padding:1.2rem 0 1rem;
+  p{margin:0;margin-bottom:1.7rem ;color:@title-color2;;}
+}
+//////////////////////////////////////////////////////////
+//      pagination
+///////////////////////////////////////////////////////////
+
+
+.pagination {
+  margin:2rem 0 3rem;
+  text-align:center;
+  ul{list-style:none;display:inline-block;}
+  li{
+    display:inline-block;
+    margin:5px;
+  }
+  a{position:relative;text-decoration:underline;.link;}
+  .pre{
+
+  }
+  .active{
+    text-decoration:none;
+  pointer-events: none;
+  }
+  .disabled{
+
+    cursor: default;
+    pointer-events: none;
+    text-decoration:line-through;
+  }
+}
+
 ////////////////////////////////////////////////////////
 //      footer common
 //////////////////////////////////////////////////////////
