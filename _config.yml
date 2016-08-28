@@ -34,8 +34,6 @@ favicon: /favicon.png
 
 
 less:
+  compress: false
   paths:
     - css
-
-less:
-  compress: false
