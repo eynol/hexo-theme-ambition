@@ -332,7 +332,7 @@ p {
     }
 }
 .article {
-    color: #fff;
+    color: @title-color1;
     padding: 1.2rem 0.7rem 1rem;
     p {
         margin: 0 0 1.7rem;
@@ -381,6 +381,13 @@ p {
 .article-list {
     min-height: 100%;
 }
+
+#naved-link{
+  &:focus{
+    border:0;
+    outline: 0;
+  }
+}
 //////////////////////////////////////////////////////////
 //      pagination
 ///////////////////////////////////////////////////////////
@@ -400,7 +407,9 @@ p {
         text-decoration: underline;
         .link;
     }
-    .pre {}
+    .page-number.current{
+      color:@yellow;
+    }
     .active {
         text-decoration: none;
         pointer-events: none;

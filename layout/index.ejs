@@ -1,1 +1,21 @@
-<%- partial('_partial/archive', {pagination: 2, index: true}) %>
+<%- partial('parts/firstimpression')%>
+<section class="center-wrapper">
+    <section class="quick-contents">
+        <a href="<%- url_for(theme.menu['Archives']) %>" id="naved-link">Contents / 目录</a>
+    </section>
+  <% page.posts.each(function(post){ %>
+    <article>
+    <%- partial('parts/articleintro', {post: post, index: true}) %>
+    <article>
+  <% }) %>
+  <nav class="pagination">
+    <% if (page.total > 1){ %>
+        <%- paginator({
+          prev_text: "&laquo;"+ __('prev'),
+          next_text: __('next') +" &raquo;",
+          format: 'page/%d/index.html#naved-link'
+        }) %>
+
+    <% } %>
+  </nav>
+  </section>

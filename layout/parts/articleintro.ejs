@@ -1,0 +1,29 @@
+<h1 class='title'>
+  <% if(index){%>
+    <a  href="<%- url_for(post.path) %>"><%- post.title %></a>
+    <%}else{%>
+      <a href="<%- url_for(post.path) %>"><%- post.title %></a>
+    <%}%>
+</h1>
+<p class="detail">
+    <time datetime="<%- date(post.date)%>" title="<%- date(post.date) %>"><span><%- date(post.date)%></span></time>
+    <% if (post.tags && post.tags.length){ %>
+        <%- list_tags(post.tags, {
+            style: 'a',
+            show_count: false,
+            separator:'/'
+          }) %>
+            <% } %>
+
+</p>
+
+<% if (theme.excerpt_link){ %>
+    <p class="brief">
+        <%- post.intro %>
+            <% if(index){%>
+                <a href="<%- url_for(post.path) %>#more">
+                    <%- theme.excerpt_link %>
+                </a>
+                <%}%>
+    </p>
+    <%} %>

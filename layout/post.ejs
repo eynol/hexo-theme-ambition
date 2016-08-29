@@ -1,1 +1,43 @@
-<%- partial('_partial/article', {post: page, index: false}) %>
+<section class="article-intro center-wrapper">
+    <%- partial('parts/articleintro' , {post: page, index: false}) %>
+</section>
+
+<article class="center-wrapper article">
+    <%- page.content %>
+</article>
+
+<section class="summary-and-me center-wrapper">
+
+    <% if (page.prev || page.next){ %>
+
+        <% if (page.prev){ %>
+            <p>
+                <%- theme.prev_post %>:
+                    <a href="<%- url_for(page.prev.path) %>" id="article-nav-newer" class="article-nav-link-wrap">
+                        <strong class="article-nav-caption">
+            <% if (page.prev.title){ %>
+              <%- page.prev.title %>
+            <% } else { %>
+              (no title)
+            <% } %>
+        </strong></a>
+            </p>
+            <% } %>
+                <% if (page.next){ %>
+                    <p>
+                        <%- theme.next_post %>:
+                            <a href="<%- url_for(page.next.path) %>" id="article-nav-older" class="article-nav-link-wrap">
+                                <strong class="article-nav-caption"><%= page.next.title %></strong></a>
+                    </p>
+                    <% } %>
+                        </nav>
+                        <% } %>
+
+
+</section>
+
+
+<div class="center-wrapper" style="position:relative;">
+  <h1 class="thin">Comments / 本文评论</h1>
+    <%- partial('parts/duoshuo', {post: page}) %>
+</div>

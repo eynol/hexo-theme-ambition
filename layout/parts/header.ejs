@@ -1,0 +1,25 @@
+<% if(!is_home()){%>
+  <nav class="nav-header bg-yellow">
+<%}else{%>
+  <nav class="nav-header">
+<%}%>
+    <div class="logo-header">
+        <a href="<%- url_for() %>"><%= config.title %></a>
+    </div>
+    <style media="screen">
+      #nav-check:checked ~ * {background-color: red;}
+    </style>
+    <input type="checkbox" id="nav-check" name="name" value="" hidden>
+    <label for="nav-check">
+      <div class="nav-mobile-avator">
+          <span></span>
+      </div>
+    </label>
+    <div class="nav-ul">
+        <ul>
+        <% for (var i in theme.menu){ %>
+        <li><a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a></li>
+        <% } %>
+        </ul>
+    </div>
+</nav>

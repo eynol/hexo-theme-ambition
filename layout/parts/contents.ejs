@@ -1,0 +1,15 @@
+<section class="contents">
+  <ul>
+    <% page.posts.each(function(post){%>
+      <li><p><a  href="<%- url_for(post.path)%>"><%- post.title %></a><span><%- date(post.date) %></span></p></li>
+    <%})%>
+  </ul>
+  <nav class="pagination">
+    <% if (page.total > 1){ %>
+        <%- paginator({
+          prev_text: "&laquo;"+ __('prev'),
+          next_text: __('next') +" &raquo;"
+        }) %>
+    <% } %>
+  </nav>
+</section>
