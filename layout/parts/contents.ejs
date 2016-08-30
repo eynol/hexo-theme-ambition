@@ -1,10 +1,10 @@
 <section class="contents">
   <ul>
     <% page.posts.each(function(post){%>
-      <li><p><a  href="<%- url_for(post.path)%>">
+      <li><p><a  href="<%- url_for(post.path)%>" title="post.title">
         <%if(post.title){%>
-          <%- post.title %>
-          <%}else{%>
+          <%- truncate(post.title, {length: 30}) %>
+        <%}else{%>
             (no title)
           <%}%>
       </a><span><%- date(post.date) %></span></p></li>

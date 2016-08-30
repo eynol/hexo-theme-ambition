@@ -1,4 +1,4 @@
-@import "lib-reset"; // @import "lib-mixins";
+@import "_lib-reset"; // @import "lib-mixins";
 ////////////////////////////
 // global variabl commmon
 //////////////////////
@@ -7,7 +7,9 @@
 @title-color2: #404040;
 @gray: #c8c8c8;
 @purple: #c10087;
-@blue: #2e16b1; ////////////////////////////////////////
+@blue: #2e16b1;
+
+ ////////////////////////////////////////
 //  global style common
 ///////////////////////////////////////
 ::selection {
@@ -78,6 +80,15 @@ img {
     max-width: 100%;
     margin: auto;
     display: block;
+}
+
+.article{
+  & > p > img:after{
+    content: attr(alt);
+    display: block;
+    width: 90%;
+    margin: auto;
+  }
 }
 
 //////////////////////////////////////////////////////
@@ -318,7 +329,7 @@ p {
     }
     time {
         position: relative;
-      
+
         display: inline-block;
         width: 10em;
         transform-style: preserve-3d;
@@ -612,9 +623,22 @@ code {
 hr{
   border: 1px dashed #ddd;
 }
- ol,  dl {
-   margin-top: 1.6em;
-   margin-bottom: 1.6em;
+
+dt{
+  font-weight: bold;
+}
+dt,dd{
+  margin-left: 1em;
+
+}
+td {
+   border-bottom: 1px solid #ddd;
+   padding: 10px 0;
+}
+.article{
+  & > ol, & > dl ,& > ul{
+     margin: 1.6em;
+  }
 }
 acronym,  abbr {
    border-bottom: 1px dotted;
