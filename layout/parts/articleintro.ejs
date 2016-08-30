@@ -1,5 +1,11 @@
 <h1 class='title'>
-  <% if(index){%>
+  <% if (post.title){
+
+   } else {
+     post.title = '(no title)';
+  } %>
+
+    <% if(index){%>
     <a  href="<%- url_for(post.path) %>"><%- post.title %></a>
     <%}else{%>
       <a href="<%- url_for(post.path) %>"><%- post.title %></a>
@@ -18,12 +24,12 @@
 </p>
 
 <% if (theme.excerpt_link){ %>
+  <% if(index){%>
     <p class="brief">
-        <%- post.intro %>
-            <% if(index){%>
+            <%- post.excerpt %>
                 <a href="<%- url_for(post.path) %>#more">
                     <%- theme.excerpt_link %>
                 </a>
-                <%}%>
     </p>
+    <%}%>
     <%} %>
