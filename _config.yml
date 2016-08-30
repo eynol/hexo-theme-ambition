@@ -13,8 +13,8 @@ excerpt_link: 继续阅读
 next_post: 下一篇
 prev_post: 上一篇
 
-# Sidebar
-
+# duoshuo
+duoshuo:true
 
 # display widgets at the bottom of index pages (pagination == 2)
 index_widgets:

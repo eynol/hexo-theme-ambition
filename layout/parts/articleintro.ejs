@@ -24,12 +24,12 @@
 </p>
 
 <% if (theme.excerpt_link){ %>
-  <% if(index){%>
+    <% if(index && page.excerpt){%>
+    <%- post.excerpt %>
     <p class="brief">
-            <%- post.excerpt %>
-                <a href="<%- url_for(post.path) %>#more">
-                    <%- theme.excerpt_link %>
-                </a>
+            <a href="<%- url_for(post.path) %>#more">
+                <%- theme.excerpt_link %>
+            </a>
     </p>
     <%}%>
     <%} %>
