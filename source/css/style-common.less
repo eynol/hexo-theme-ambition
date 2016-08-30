@@ -26,6 +26,13 @@
 .text-center {
     text-align: center;
 }
+
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
 .link {
     margin: 0 5px;
     font-weight: 400;
@@ -72,43 +79,7 @@ img {
     margin: auto;
     display: block;
 }
-blockquote {
-    border-left: #2E16b1 6px solid;
-    margin-left: 1em;
-    padding-left: 1em;
-    text-align: center;
-}
-.highlight {
-    background: #2d2d2d;
-    margin: 0 -20px;
-    padding: 15px 20px;
-    border-style: solid;
-    border-color: #ddd;
-    border-width: 1px 0;
-    overflow: auto;
-    color: #ccc;
-    line-height: 22.400000000000002px;
-}
-.highlight pre {
-    border: none;
-    margin: 0;
-    padding: 0;
-}
-.highlight figcaption {
-    font-size: 0.85em;
-    color: #999;
-    line-height: 1em;
-    margin-bottom: 1em;
-}
-.gutter pre {
-    text-align: right;
-    padding-right: 20px;
-}
- .line-numbers,
-.highlight .gutter pre {
-    color: #666;
-    font-size: 0.85em;
-}
+
 //////////////////////////////////////////////////////
 //           Video
 ///////////////////////////////////////////////////////
@@ -137,6 +108,7 @@ a {
     font-weight: 300;
     text-decoration: none;
     color: @purple;
+      .link-hover-effect;
 }
 .thin {
     font-weight: 100;
@@ -175,7 +147,7 @@ p {
         font-weight: 500;
         text-transform: uppercase;
         color: black;
-        .link-hover-effect;
+
     }
 }
 .nav-ul {
@@ -194,7 +166,7 @@ p {
             position: relative;
             display: block;
             margin: 5px 10px;
-            .link-hover-effect;
+
         }
     }
 }
@@ -415,6 +387,11 @@ p {
     padding: 2rem 5px 5px;
     ul {
         list-style: none;
+        span {
+            float: right;
+            background: #fff;
+            margin-right: -3px;
+        }
     }
     li {
         position: relative;
@@ -440,11 +417,7 @@ p {
         background: #fff;
         // position:static;
     }
-    span {
-        float: right;
-        background: #fff;
-        margin-right: -3px;
-    }
+
 }
 .article-list {
     min-height: 100%;
@@ -468,7 +441,10 @@ p {
         text-decoration: underline;
         .link;
     }
-    .pre {}
+
+    span{
+      float: none;
+    }
     .active {
         text-decoration: none;
         pointer-events: none;
@@ -482,7 +458,7 @@ p {
 ////////////////////////////////////////////////////////
 //      footer common
 //////////////////////////////////////////////////////////
-body > footer {
+.main-wrapper  > footer {
     position: absolute;
     bottom: 0;
     box-sizing: border-box;
@@ -492,7 +468,7 @@ body > footer {
     text-align: center;
     background-color: @yellow;
 }
-.footer {}
+
 button {
     width: 100%;
     padding: 0.3rem 3rem;
@@ -539,4 +515,98 @@ button {
     top: 5px;
     right: 5px;
     z-index: -1;
+}
+
+
+
+.highlight {
+    background: #2d2d2d;
+    margin: 0 -20px;
+    padding: 15px 20px;
+    border-style: solid;
+    border-color: #ddd;
+    border-width: 1px 0;
+    overflow: auto;
+    color: #ccc;
+    line-height: 22.400000000000002px;
+}
+.highlight pre {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+.highlight figcaption {
+    font-size: 0.85em;
+    color: #999;
+    line-height: 1em;
+    margin-bottom: 1em;
+}
+.gutter pre {
+    text-align: right;
+    padding-right: 20px;
+}
+ .line-numbers,
+.highlight .gutter pre {
+    color: #666;
+    font-size: 0.85em;
+}
+
+.highlight figcaption a {
+    float: right;
+}
+pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
+    color: #9c9;
+}
+pre .comment, pre .title {
+    color: #999;
+}
+pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+    color: #f99157;
+}
+
+pre .keyword, pre .javascript .function {
+    color: #c9c;
+}
+.pullquote {
+   text-align: left;
+   width: 45%;
+   margin: 0;
+}
+
+
+blockquote {
+    border-left: #2E16b1 6px solid;
+    padding-left: 1em;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.4em;
+    margin: 1.6em 20px;
+    text-align: center;
+
+}
+
+blockquote footer {
+    font-size: 14px;
+    margin: 1.6em 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+blockquote footer cite:before {
+    content: "—";
+    padding: 0 0.5em;
+}
+.pullquote.left {
+   margin-left: 0.5em;
+   margin-right: 1em;
+}
+.pullquote.right {
+    margin-right: 0.5em;
+    margin-left: 1em;
+}
+//////////////////////////////////////////////////////////////
+// fix
+///////////////////////////////////////////////////////////
+#naved-link{
+  &:focus{
+    border: 0;
+    outline: 0;
+  }
 }
