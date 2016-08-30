@@ -29,10 +29,10 @@
                         <%= config.title %>
         </title>
 
-        <%if(theme.prefetch){
-          theme.prefetch.each(function(host){%>
-            <link rel="dns-prefetch" href="<%- host %>">
-            <%})} %>
+        <%if(theme.prefetch && theme.prefetch.length>0){
+          for(var xp = 0,lenxp = theme.prefetch.length;xp <lenxp;xp++){%>
+            <link rel="dns-prefetch" href="<%- theme.prefetch[xp] %>">
+          <%}} %>
 
     <%if(theme.favicon){%>
 
