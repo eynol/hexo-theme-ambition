@@ -10,6 +10,9 @@
     <%}else{%>
       <a href="<%- url_for(post.path) %>"><%- post.title %></a>
     <%}%>
+    <%if(post.link){%>
+      &bnsp;&bnsp;&bnsp;<small><a href="<%- post.link %>" target="_blank">Go</a></small>
+    <%}%>
 </h1>
 <p class="detail">
     <time datetime="<%- date(post.date)%>" title="<%- date(post.date) %>"><span><%- date(post.date)%></span></time>
@@ -24,7 +27,7 @@
 </p>
 
 <% if (theme.excerpt_link){ %>
-    <% if(index && page.excerpt){%>
+    <% if(index){%>
     <%- post.excerpt %>
     <p class="brief">
             <a href="<%- url_for(post.path) %>#more">
