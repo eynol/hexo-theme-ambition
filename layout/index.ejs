@@ -6,7 +6,7 @@
   <% page.posts.each(function(post){ %>
     <article>
     <%- partial('parts/articleintro', {post: post, index: true}) %>
-    <article>
+    </article>
   <% }) %>
   <nav class="pagination">
     <% if (page.total > 1){ %>
