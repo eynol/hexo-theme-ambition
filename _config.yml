@@ -17,7 +17,7 @@ prev_post: 上一篇
 duoshuo:true
 
 # display widgets at the bottom of index pages (pagination == 2)
-index_widgets:
+# index_widgets:
 # - category
 # - tagcloud
 # - archive
