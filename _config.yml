@@ -11,10 +11,19 @@ menu:
 
 rss: /atom.xml
 
+
+# prefetch control
+prefetchControl: true
+
 # prefetch some sites' ip
 prefetch:
-  - github.com
-  - heitaov.cn
+  - https://github.com
+  - https://heitaov.cn
+
+# pre-render !this will spend many resource
+preRender:
+  - /archives/
+  - /tags/
 
 # Content
 excerpt_link: 继续阅读

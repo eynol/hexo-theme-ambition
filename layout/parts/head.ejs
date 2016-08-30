@@ -23,25 +23,37 @@
     }
     %>
         <title>
-            <% if (title){ %>
-                <%= title %> |
-                    <% } %>
-                        <%= config.title %>
+  <% if (title){ %>
+    <%= title %> |
+        <% } %>
+            <%= config.title %>
         </title>
 
-        <%if(theme.prefetch && theme.prefetch.length>0){
-          for(var xp = 0,lenxp = theme.prefetch.length;xp <lenxp;xp++){%>
-            <link rel="dns-prefetch" href="<%- theme.prefetch[xp] %>">
-          <%}} %>
 
-    <%if(theme.favicon){%>
+    <%if(theme.prefetchControl){%>
+    <meta http-equiv='x-dns-prefetch-control' content='on'>
+    <%}%>
+        <%if(theme.prefetch && theme.prefetch.length>0){%>
+    <%for(var xp = 0,lenxp = theme.prefetch.length;xp <lenxp;xp++){%>
+        <link rel="dns-prefetch" href="<%- theme.prefetch[xp] %>">
+        <%}} %>
+          <%if(theme.preRender && theme.preRender.length>0){%>
+    <%for(var pr = 0,lenxp = theme.preRender.length;pr <lenxp;pr++){%>
+        <link rel="prerender" href="<%- theme.preRender[pr] %>">
+        <%}} %>
 
-<link rel="shortcut icon" href="<%- theme.favicon %>">
-<% }%>
 
-                <% if (config.highlight.enable){ %>
-                    <link href="https://fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-                    <% } %>
-                        <%- css('css/style-common') %>
-                            <%- css('css/highlight') %>
+
+
+      <%if(theme.favicon){%>
+    <link rel="shortcut icon" href="<%- theme.favicon %>">
+    <% }%>
+
+
+
+      <% if (config.highlight.enable){ %>
+    <link href="https://fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <% } %>
+        <%- css('css/style-common') %>
+            <%- css('css/highlight') %>
 </head>
