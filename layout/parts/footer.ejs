@@ -1,3 +1,8 @@
 <footer>
-    <p class="text-center">© 2016 Taka Tao Powered by <a href="#">Hexo</a></p>
+  <div class="outer">
+    <div id="footer-info" class="inner text-center">
+      &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %><br>
+      <%= __('powered_by') %> <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
 </footer>

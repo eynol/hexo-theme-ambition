@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
@@ -22,10 +22,26 @@
       title = __('tag') + ': ' + page.tag;
     }
     %>
-    <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
-    <% if (config.highlight.enable){ %>
-      <link href="https://fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-    <% } %>
-    <%- css('css/style-common') %>
-        <%- css('css/highlight') %>
+        <title>
+            <% if (title){ %>
+                <%= title %> |
+                    <% } %>
+                        <%= config.title %>
+        </title>
+
+        <%if(theme.prefetch){
+          theme.prefetch.each(function(host){%>
+            <link rel="dns-prefetch" href="<%- host %>">
+            <%})} %>
+
+    <%if(theme.favicon){%>
+
+<link rel="shortcut icon" href="<%- theme.favicon %>">
+<% }%>
+
+                <% if (config.highlight.enable){ %>
+                    <link href="https://fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+                    <% } %>
+                        <%- css('css/style-common') %>
+                            <%- css('css/highlight') %>
 </head>
