@@ -11,7 +11,7 @@
       <a href="<%- url_for(post.path) %>"><%- post.title %></a>
     <%}%>
     <%if(post.link){%>
-      &bnsp;&bnsp;&bnsp;<small><a href="<%- post.link %>" target="_blank">Go</a></small>
+      <a href="<%- post.link %>" style="font-size:12px; text-decoration:underline;padding-left:2em;" class="thin" target="_blank">link</a>
     <%}%>
 </h1>
 <p class="detail">
@@ -27,7 +27,7 @@
 </p>
 
 <% if (theme.excerpt_link){ %>
-    <% if(index){%>
+    <% if(index && post.excerpt){%>
     <%- post.excerpt %>
     <p class="brief">
             <a href="<%- url_for(post.path) %>#more">
