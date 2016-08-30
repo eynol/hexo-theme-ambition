@@ -83,7 +83,7 @@ img {
 }
 
 .article{
-  & > p > img:after{
+  & > p > img::after{
     content: attr(alt);
     display: block;
     width: 90%;
@@ -122,6 +122,18 @@ a {
     color: @purple;
       .link-hover-effect;
 }
+
+.ds-thread{
+  a{
+    &:hover {
+        background-color: transparent;;
+        &:before {
+            display: none;
+        }
+    }
+  }
+}
+
 .thin {
     font-weight: 100;
 }
