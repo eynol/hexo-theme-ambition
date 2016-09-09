@@ -114,6 +114,16 @@ img {
 ///////////////////////////////////////////////////
 //           reset my font
 //////////////////////////////////////////////////
+
+.no-link-effect{
+  &:hover {
+      background-color: transparent;;
+      &:before {
+          display: none;
+      }
+  }
+}
+
 a {
     position: relative;
     font-size: 1rem;
@@ -124,14 +134,11 @@ a {
 }
 
 .ds-thread{
+
   a{
-    &:hover {
-        background-color: transparent;;
-        &:before {
-            display: none;
-        }
-    }
+    .no-link-effect;
   }
+
 }
 
 .thin {
@@ -315,22 +322,25 @@ p {
 .first-impression {
     background: url("../img/yellow-metal.jpg") top center;
     background-size: 100%;
-    text-align: center;
+    text-align: left;
     padding: 8rem 0 3rem;
 }
 .impress-words {
-    color: black;
-    padding: 1rem 0 2rem;
-    // display: inline-block;
-    background-color: rgba(255, 255, 255, .77);
+    color: #fff;
+    padding: 1rem 0 2rem 4rem;
+
 }
 .title {
     margin-bottom: 0;
+    &:hover{
+      .link-hover-effect;
+    }
 }
 .title a {
     font-size: 1.7rem;
     font-weight: 600;
     color: @title-color1;
+    .no-link-effect;
 }
 .detail {
     font-size: 0.7rem;
@@ -384,7 +394,7 @@ p {
     }
 }
 .quick-contents {
-    text-align: center;
+
     padding: 1rem 1rem 1rem 0;
     a {
         .link;
@@ -404,41 +414,45 @@ p {
         color: @title-color2;
     }
 }
+
+.article-index{
+  article{
+    padding: 5px 0;
+    margin-bottom: 2rem;
+  }
+}
 .contents {
     min-height: 100vh;
     max-width: 700px;
     margin: auto;
-    padding: 2rem 5px 5px;
+    padding: 2rem 5px 5px 100px;
     ul {
         list-style: none;
-        span {
-            float: right;
-            background: #fff;
-            margin-right: -3px;
-        }
+
     }
     li {
         position: relative;
-        &:before {
-            content: "";
-            display: block;
-            position: absolute;
-            top: 0.8rem;
-            z-index: -1;
-            width: 100%;
-            border-bottom: 1px dashed black;
-        }
-        &:hover {
-            &:before {
-                border-color: @yellow;
+
+          span {
+              position: absolute;
+              display: inline-block;
+              width: 90px;
+              background: #fff;
+              left:0;
+              margin-left: -120px;
+              opacity: .4;
+              transition: opacity .3s;
+          }
+          &:hover{
+            span{
+              opacity: .8;
             }
-        }
+          }
     }
     a {
-        .link;
         display: inline-block;
-        margin-left: -3px;
-        background: #fff;
+        .no-link-effect;
+
         // position:static;
     }
 
