@@ -332,9 +332,7 @@ p {
 }
 .title {
     margin-bottom: 0;
-    &:hover{
-      .link-hover-effect;
-    }
+
 }
 .title a {
     font-size: 1.7rem;
@@ -391,6 +389,8 @@ p {
         display: inline-block; //make the words in a single line;
         text-decoration: underline;
         .link;
+        margin-left: 0;
+
     }
 }
 .quick-contents {
@@ -398,6 +398,7 @@ p {
     padding: 1rem 1rem 1rem 0;
     a {
         .link;
+        margin-left: 0;
     }
 }
 .article-intro {
@@ -453,6 +454,9 @@ p {
         display: inline-block;
         .no-link-effect;
 
+        &:hover{
+          color: #ff00b2;
+        }
         // position:static;
     }
 
@@ -535,7 +539,9 @@ button {
     position: relative;
     display: inline-block;
     width: 200px;
-    box-shadow: 1px 2px 3px #ddd;
+
+  .material-shadow;
+  .material-shadow-hover;
     border: 1px solid #ddd;
     border-radius: 3px;
     box-sizing: border-box;
@@ -545,6 +551,7 @@ button {
         width: 200px;
         padding: 5px 10px;
         box-sizing: border-box;
+        .no-link-effect;
     }
     margin: 5px;
 }
