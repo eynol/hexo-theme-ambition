@@ -6,15 +6,9 @@
     <div class="logo-header">
         <a href="<%- url_for() %>"><%= config.title %></a>
     </div>
-    <style media="screen">
-      #nav-check:checked ~ * {background-color: red;}
-    </style>
-    <input type="checkbox" id="nav-check" name="name" value="" hidden>
-    <label for="nav-check">
-      <div class="nav-mobile-avator">
+    <div class="nav-mobile-avator" id="js-toggle-nav">
           <span></span>
-      </div>
-    </label>
+    </div>
     <div class="nav-ul">
         <ul>
         <% for (var i in theme.menu){ %>
