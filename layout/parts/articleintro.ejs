@@ -15,7 +15,7 @@
     <%}%>
 </h1>
 <p class="detail">
-    <time datetime="<%- date(post.date)%>" title="<%- date(post.date) %>"><span><%- date(post.date)%></span></time>
+    <time datetime="<%- date(post.date,'YYYY-MM-DD HH:mm')%>" title="<%- date(post.date) %>"><span class="time-readable"><%- date(post.date)%></span></time>
     <% if (post.tags && post.tags.length){ %>
         <%- list_tags(post.tags, {
             style: 'a',

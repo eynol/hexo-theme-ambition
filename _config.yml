@@ -49,6 +49,6 @@ favicon: /favicon.ico
 
 
 less:
-  compress: false
+  compress: true
   paths:
     - css

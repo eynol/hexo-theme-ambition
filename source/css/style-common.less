@@ -3,6 +3,7 @@
 // global variabl commmon
 //////////////////////
 @yellow: #fff500;
+@red: #ff6262; //now
 @title-color1: #2f2f2f;
 @title-color2: #404040;
 @gray: #c8c8c8;
@@ -102,6 +103,17 @@ img {
 }
 
 .article {
+    h1:hover:before,h2:hover:before,h3:hover:before,h4:hover:before{
+      content: "#";
+      position: absolute;
+      line-height: 1.47em;
+      margin-left: -0.8em;
+    }
+    h3:hover:before{
+      line-height: 1.27em;
+    }
+
+
     & > p > img::after {
         content: attr(alt);
         display: block;
@@ -150,7 +162,7 @@ a {
     font-size: 1rem;
     font-weight: 300;
     text-decoration: none;
-    color: @purple;
+    color: @red;
     .link-hover-effect;
 }
 
@@ -224,6 +236,7 @@ p {
             position: relative;
             display: block;
             margin: 5px 10px;
+            color: #000;
         }
     }
 }
@@ -484,7 +497,7 @@ p {
     padding: 1.2rem 0.7rem 1rem;
 
     p {
-        margin: 0 0 1.7rem;
+        margin: 1rem 0;
         color: @title-color2;
     }
 }
@@ -667,9 +680,9 @@ button {
 
 .article-nav-link-wrap {
     .no-link-effect;
-
+  border-bottom: 1px solid transparent;
     &:hover {
-        color: @lighten-link;
+        border-bottom: 1px solid @yellow;
     }
 }
 
@@ -748,7 +761,7 @@ pre .keyword {
 }
 
 blockquote {
-    border-left: #2E16b1 6px solid;
+    border-left: @red 6px solid;
     padding-left: 1em;
     color: lighten(@title-color2, 10%);
     font-size: 1.4em;
@@ -805,8 +818,9 @@ td {
     & > dl,
     & > ol,
     & > ul {
-        margin: 1.6em;
+        margin: 1.6em 1.2em;
     }
+
 }
 
 abbr,
