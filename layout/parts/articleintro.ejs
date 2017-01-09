@@ -1,14 +1,14 @@
-<h1 class='title'>
   <% if (post.title){
 
    } else {
      post.title = '(no title)';
   } %>
 
-    <% if(index){%>
+
+<h1 class='title'><% if(index){%>
     <a  href="<%- url_for(post.path) %>"><%- post.title %></a>
     <%}else{%>
-      <a href="<%- url_for(post.path) %>"><%- post.title %></a>
+      <%- post.title %>
     <%}%>
     <%if(post.link){%>
       <a href="<%- post.link %>" style="font-size:12px; text-decoration:underline;margin-left:2em;" class="thin" target="_blank">link</a>
@@ -22,13 +22,16 @@
             show_count: false,
             separator:'/'
           }) %>
-            <% } %>
+          <% } %>
 
 </p>
 
 <% if (theme.excerpt_link){ %>
     <% if(index && post.excerpt){%>
     <%- post.excerpt %>
+    <a href="<%- url_for(post.path) %>">
+            <%- theme.excerpt_link %>
+    </a>
     <p class="brief">
             <a href="<%- url_for(post.path) %>#more">
                 <%- theme.excerpt_link %>
