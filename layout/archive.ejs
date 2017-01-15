@@ -1,4 +1,4 @@
-<%- partial('parts/contents', {pagination: config.archive, index: true}) %>
+<%- partial('parts/contents', {where: "archive"}) %>
 <section class="center-wrapper">
   <h1 class="text-center" style="margin-top:2rem;">Archives List</h1>
   <%- list_archives({show_count: true, type: theme.archive_type}) %>

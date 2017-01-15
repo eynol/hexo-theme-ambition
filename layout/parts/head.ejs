@@ -1,59 +1,46 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <%
-    var title = page.title;
 
-    if (is_archive()){
-      title = __('archive_a');
+<% var title = page.title;
 
-      if (is_month()){
-        title += ': ' + page.year + '/' + page.month;
-      } else if (is_year()){
-        title += ': ' + page.year;
-      }
-    } else if (is_category()){
-      title = __('category') + ': ' + page.category;
-    } else if (is_tag()){
-      title = __('tag') + ': ' + page.tag;
-    }
-    %>
-        <title>
+if (is_archive()){
+  title = __('archive_a');
+
+  if (is_month()){
+    title += ': ' + page.year + '/' + page.month;
+  } else if (is_year()){
+    title += ': ' + page.year;
+  }
+} else if (is_category()){
+  title = __('category') + ': ' + page.category;
+} else if (is_tag()){
+  title = __('tag') + ': ' + page.tag;
+}%>
+
+<title>
   <% if (title){ %>
     <%= title %> |
-        <% } %>
-            <%= config.title %>
-        </title>
+  <% } %>
+  <%= config.title %>
+</title>
 
+<%if(theme.prefetchControl){%><meta http-equiv='x-dns-prefetch-control' content='on'><%}%>
 
-    <%if(theme.prefetchControl){%>
-    <meta http-equiv='x-dns-prefetch-control' content='on'>
-    <%}%>
-        <%if(theme.prefetch && theme.prefetch.length>0){%>
-    <%for(var xp = 0,lenxp = theme.prefetch.length;xp <lenxp;xp++){%>
-        <link rel="dns-prefetch" href="<%- theme.prefetch[xp] %>">
-        <%}} %>
-          <%if(theme.preRender && theme.preRender.length>0){%>
+<%if(theme.prefetch && theme.prefetch.length>0){%>
+  <%for(var xp = 0,lenxp = theme.prefetch.length;xp <lenxp;xp++){%>
+    <link rel="dns-prefetch" href="<%- theme.prefetch[xp] %>">
+  <%}} %>
+  <%if(theme.preRender && theme.preRender.length>0){%>
     <%for(var pr = 0,lenxp = theme.preRender.length;pr <lenxp;pr++){%>
-        <link rel="prerender" href="<%- theme.preRender[pr] %>">
-        <%}} %>
+  <link rel="prerender" href="<%- theme.preRender[pr] %>">
+<%}} %>
+
+<%if(theme.favicon){%><link rel="shortcut icon" href="<%- theme.favicon %>"><% }%>
 
 
-
-
-      <%if(theme.favicon){%>
-    <link rel="shortcut icon" href="<%- theme.favicon %>">
-    <% }%>
-
-
-
-      <% if (config.highlight.enable){ %>
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-    <% } %>
-        <%- css('css/style-common') %>
-            <%- css('css/highlight') %>
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+<%- css('css/style-common') %>
+<%- css('css/highlight') %>
 </head>

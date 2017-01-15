@@ -1,0 +1,773 @@
+@import "_lib-reset";
+////////////////////////////
+// global variabl commmon
+//////////////////////
+
+// colors 
+color-theme = rgb(255,247,0)
+color-theme-dark = rgb(254,230,0)
+color-selection =  #fff500
+
+
+color-black = #1a1a1a
+color-text = #464646
+color-text2 = #666666 
+color-ignore = #767676
+
+color-graypanel = #FAFAFA
+color-gray = #aaa
+color-gray-border = #e5e5e5 
+color-yellow = #f5de43
+//@yellow: #fff500;
+color-yellow-normal = #f5de43
+color-red = #ff6262 //now
+color-title-color1 = #2f2f2f
+color-title-color2 = #404040
+color-gray = #c8c8c8
+color-purple = #c10087
+color-blue = rgb(0,162,178)
+color-lighten-link = #ff00b2
+
+
+
+
+// font-family
+font-suit-slogan()
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+
+mobile-nav-height = 240px;
+////////////////////////////////////////
+//  global style common
+///////////////////////////////////////
+::selection 
+    background-color color-selection
+
+::-moz-selection 
+    background-color color-selection
+
+clearfix() 
+    &:after 
+        content ""
+        display table
+        clear both
+
+.clearfix
+    clearfix()
+
+.text-center 
+    text-align center
+
+.left 
+    float left
+
+.right 
+    float right
+
+
+    
+//////////////////////////////////////////////////////
+//          Material-shadow effect
+///////////////////////////////////////////////////////
+.material-shadow
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+.material-shadow-inset-top
+    box-shadow: inset 0 16px 7px -10px rgba(0,0,0,0.16), inset 0 8px 20px -16px rgba(0,0,0,0.12)
+.material-shadow-inset-bottom
+    box-shadow: inset 0 -5px 10px -7px rgba(0,0,0,0.16), inset 0 -4px 12px -4px rgba(0,0,0,0.12)
+.material-shadow-hover
+    &:hover
+        box-shadow: 0 5px 11px -3px rgba(0, 0, 0, 0.18), 0 4px 15px -3px rgba(0, 0, 0, 0.15);
+.material-shadow-hover-high
+    &:hover
+        box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+
+.btn
+    background-color: white
+    color: black
+    border-radius: 3px
+    padding: 5px 10px
+    transition: 0.3s
+    @extends .material-shadow
+    @extends .material-shadow-hover
+
+    
+//////////////////////////////////////////////////////
+//          Link effect
+///////////////////////////////////////////////////////
+link-hover-effect()
+    &:hover
+        background-color: color-theme;
+        &:before
+            position absolute
+            display inline-block
+            content ""
+            top 0
+            bottom 0
+            left -5px
+            width 5px
+            background-color black
+
+no-link-effect() 
+    &:hover 
+        background-color transparent
+        &:before 
+            display none
+
+link()
+    margin 0 5px
+    font-weight 400
+    position relative
+    link-hover-effect()
+
+
+
+
+
+    
+//////////////////////////////////////////////////////
+//          Image
+///////////////////////////////////////////////////////
+img 
+    max-width 100%
+    margin auto
+    display block
+
+.article>p>img::after 
+        content attr(alt)
+        display block
+        width 90%
+        margin auto
+    
+//////////////////////////////////////////////////////
+//           Video
+///////////////////////////////////////////////////////
+.video-container 
+    position relative
+    padding-top 56.25%
+    height 0
+    overflow hidden
+    iframe 
+        position absolute
+        top 0
+        left 0
+        width 100%
+        height 100%
+        margin-top 0
+
+///////////////////////////////////////////////////
+//          Reset elements
+//////////////////////////////////////////////////
+a
+    position relative
+    font-size 1rem
+    font-weight 300
+    text-decoration none
+    color color-blue
+    padding 2px 8px
+    link-hover-effect()
+
+p
+    font-size 1rem
+    font-weight 400
+    line-height 1.7
+    margin 0.5rem 0
+    color  color-text
+    text-align justify
+
+
+.thin 
+    font-weight 100
+
+ 
+
+button
+    padding: 5px 12px
+    margin-top: 4px;
+    transition: 0.3s;
+    color: #fff;
+    border:none
+    //border: 1px solid color-gray-border;
+    border-radius: 3px;
+    outline: none;
+    background-color: white
+    box-shadow: rgba(0,0,0,0.157) 0 0px 1px 0px, rgba(0,0,0,0.118) 0 2px 1px 0
+    -webkit-appearance: none;
+    &:hover
+        background-color: white
+       // box-shadow: rgba(0, 0, 0, .180392) 0 5px 11px 0, rgba(0, 0, 0, .14902) 0 4px 15px 0;
+
+
+/////////////////////////////////////////////////
+//          Page Header & nav
+//////////////////////////////////////////////////
+.nav-header 
+    position absolute
+    top 0
+    z-index 5
+    width 100%
+    height 80px
+    clearfix()
+
+//logo 
+.logo-header
+    display inline-block
+    padding 2rem 0 0 80px
+    zoom 1
+    height 80px
+    box-sizing border-box
+    *display inline
+    a 
+        position relative
+        font-size 1.3rem
+        font-weight 900
+        letter-spacing 4px
+        text-transform uppercase
+        color black
+
+//nav bar
+.nav-ul 
+    float right
+    display inline-block
+    box-sizing border-box
+    height 80px
+    padding 2rem 2rem 0 0
+    ul
+        margin 0
+        list-style none
+    li
+        display inline-block
+        a
+            position relative
+            display block
+            margin 5px 14px
+            padding-top 5px
+            color color-text
+
+.nav-mobile-avator 
+    display inline-block
+    margin 2rem 3rem
+    transition 0.3s
+    text-decoration none
+    span 
+        position relative
+        display inline-block
+        width 27px
+        height 5px
+        transition 0.5s
+        transform-origin center center
+        background-color black
+        &:before
+            position absolute
+            top -7px
+            left 0
+            display inline-block
+            width 27px
+            height 5px
+            content ""
+            transition 0.5s
+            transform-origin center center
+            background-color black
+        &:after
+            position absolute
+            top 7px
+            left 0
+            display inline-block
+            width 27px
+            height 5px
+            content ""
+            transition 0.5s
+            transform-origin center center
+            background-color black
+        &.active
+            background-color transparent
+            &:before
+                top 0
+                transform rotateZ(135deg)
+            &:after
+                top 0
+                transform rotateZ(-135deg)
+
+
+.nav-mobile-avator 
+    display none
+
+
+@media screen and (max-width:700px)
+    .nav-mobile-avator
+        display: inline-block
+    .nav-ul
+        position absolute
+        top 79px
+        right 0
+        left 0
+        display block
+        height 0
+        padding 0
+        margin 0
+        overflow hidden
+        list-style none
+        transition 0.5s
+        text-align center
+        background-color white
+        box-shadow 0 4px 6px rgba(0, 0, 0, .3)
+        li
+            display block
+            max-width 200px
+            margin auto
+            text-align left
+            a
+                display: inline-block;
+                padding: 0.5rem 10px;
+        &.active
+            height: mobile-nav-height;
+            animation: menu-out 1.2s;
+
+@keyframes menu-out {
+    0% {
+        height: 0;
+    }
+    30% {
+        height: 0;
+    }
+    100% {
+        height: mobile-nav-height;
+    }
+}
+
+//////////////////////////////////////////////////////////////
+//             Content wrapper
+////////////////////////////////////////////////////////////
+.main-wrapper
+    position: relative;
+    min-height: 100%;
+    width: 100%;
+    padding-top: 80px;
+    box-sizing: border-box;
+    padding-bottom: 150px;
+   
+
+.center-wrapper
+    max-width: 700px;
+    margin: auto;
+    padding: 5px 1rem;
+
+///////////////////////////////////////////////////////////
+//          Homepage's big slogan
+///////////////////////////////////////////////////////////
+.impression-background
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+.first-impression
+    position: relative;
+    padding: 0;
+    // background: url("../img/yellow-metal.jpg") top center;
+    //background-size: 100%;
+    text-align: left;
+    h1
+        font-size: 7rem;
+        white-space: pre;
+        font-suit-slogan()
+.impress-words
+    //margin-top: -100%;
+    color: #fff;
+    padding: 1rem 0 2rem 16px;
+
+@media screen and (max-width:700px)
+    .first-impression
+        background: color-theme;
+        padding: 1rem 0;
+    .impress-words
+        padding: 1rem;
+
+
+
+////////////////////////////////
+//          Article entry
+//////////////////////////////////////
+
+.title
+    position relative
+    margin-bottom 0
+    font-size 48px
+    line-height 54px
+    font-weight 700
+    &:after
+        position absolute
+        bottom: -6px
+        left: 0
+        content ""
+        width 8rem
+        height: 3px
+        background-color color-theme-dark
+        transition width .3s
+    &:hover:after
+        width 100%
+    a
+        font-size inherit
+        color color-text
+        no-link-effect()
+        padding 0
+        .title2
+            font-size: 32px
+     .title2
+            font-size: 32px
+
+.detail
+    font-size 0.7rem
+    margin-bottom 0.3rem
+    color color-gray
+    time
+        position relative
+        display inline-block
+        padding-right 5px 
+    .tag-link
+        color color-gray
+        font-size  0.7rem
+        &:hover
+            color black
+
+.brief button{
+    transition:  box-shadow .3s
+    @extends .material-shadow-hover
+}
+
+.readmore
+    no-link-effect()
+    color color-text
+    font-weight: 400
+ 
+////////////////////////////////////
+//                post
+//////////////////////////////////////////
+// .article-intro
+//     .title a
+//         font-size: 3rem;
+
+.article-intro
+    position: relative;
+
+// .video-container 
+//     position relative
+//     padding-top 56.25%
+//     height 0
+//     overflow hidden
+//     iframe 
+//         position absolute
+//         top 0
+//         left 0
+//         width 100%
+//         height 100%
+//         margin-top 0
+
+.title-no-img
+    //position relative
+    //padding-top 56.25%
+    //height 0
+    overflow: hidden
+    box-sizing: border-box
+    background: url("/img/photography.png") repeat
+    @extends .material-shadow-inset-bottom;
+    h1
+        font-size: 4rem;
+        margin: 0
+        color: #636363;
+        padding-top: 120px
+        text-align: center
+        font-suit-slogan()
+        text-transform: uppercase;
+        &:before
+        &:after
+            display: none
+    .detail
+        background-color: whitesmoke;
+        text-align: center
+        margin-top: 20px
+        margin-bottom:20px
+        @extends .center-wrapper;
+
+@media screen and (min-width:1400px)
+    .title-section
+        background: url("/img/photography_@2X.png") repeat
+ 
+
+.headerlink
+    display: none;
+
+
+.article
+    color: color-title-color1;
+    padding: 1.2rem 0.7rem 1rem;
+    p
+        margin: 1rem 0;
+        color: color-title-color2;
+
+.article-index section 
+    padding: 5px 0;
+    margin-bottom: 2rem;
+
+.contents
+    min-height: 100vh;
+    max-width: 700px;
+    margin: auto;
+    padding: 2rem 5px 5px 100px;
+    ul
+        list-style: none;
+    li
+        position: relative;
+        span
+            position absolute
+            display inline-block
+            width 90px
+            background #fff
+            left 0
+            margin-left -120px
+            opacity 0.4
+            transition opacity 0.3s
+        &:hover span
+                opacity: 0.8;
+    a
+        display inline-block
+        no-link-effect()
+        &:hover 
+            color lighten-link
+        // position:static;
+
+.article-list
+    min-height: 100%;
+
+@media screen and (max-width:768px)
+    .contents
+        padding: 1rem;
+        li span
+                position: relative;
+                display: block;
+                margin-left: 0;
+                margin-bottom: 1rem;
+
+
+//////////////////////////////////////////////////////////
+//           Pagination
+///////////////////////////////////////////////////////////
+.pagination
+    margin: 2rem 0 3rem;
+    text-align: center;
+    ul
+        list-style: none;
+        display: inline-block;
+    li
+        display: inline-block;
+        margin: 5px;
+    a
+        position: relative;
+        text-decoration: underline;
+        link()
+    span
+        float: none;
+    .active
+        text-decoration: none;
+        pointer-events: none;
+    .disabled
+        cursor: default;
+        pointer-events: none;
+        text-decoration: line-through;
+
+////////////////////////////////////////////////////////
+//          Page's footer 
+//////////////////////////////////////////////////////////
+.main-wrapper>footer
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    padding: 3rem 0 2rem;
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    background-color: color-theme-dark
+
+
+//////////////////////////////////////////////////////////////////////////
+// hexo default
+//////////////////////////////////////////////////////////////////////////
+.archive-list
+.tag-list 
+    list-style none;
+
+.archive-list-item
+.tag-list-item 
+    position relative;
+    display inline-block;
+    width 200px;
+    border 1px solid #ddd;
+    border-radius 3px;
+    box-sizing border-box;
+    margin 5px;
+    a
+        display inline-block;
+        width 200px;
+        padding 5px 10px;
+        box-sizing border-box;
+        no-link-effect()
+
+.archive-list-count
+.tag-list-count
+    position absolute;
+    top 5px;
+    right 5px;
+    z-index -1;
+
+.article-nav-link-wrap 
+    no-link-effect()
+    border-bottom 1px solid transparent;
+    &:hover 
+        border-bottom: 1px solid yellow;
+
+.highlight 
+    background: #2d2d2d;
+    margin: 0 -20px;
+    padding: 15px 20px;
+    border-style: solid;
+    border-color: #ddd;
+    border-width: 1px 0;
+    overflow: auto;
+    color: #ccc;
+    line-height: 22.400000000000002px;
+    pre
+        border: none;
+        margin: 0;
+        padding: 0;
+    figcaption 
+        font-size: 0.85em;
+        color: #999;
+        line-height: 1em;
+        margin-bottom: 1em;
+
+.gutter pre
+    text-align: right;
+    padding-right: 20px;
+
+.highlight .gutter pre
+.line-numbers 
+    color: #666;
+    font-size: 0.85em;
+
+.highlight figcaption a
+    float: right;
+
+
+pre
+    .header
+    .inheritance
+    .ruby .symbol
+    .string
+    .value
+    .xml .cdata 
+        color #9c9
+    .comment
+    .title
+        color #999
+    .built_in
+    .constant
+    .literal
+    .number
+    .params
+    .preprocessor
+        color #f99157
+    .javascript .function
+    .keyword 
+        color #c9c
+
+.pullquote
+    text-align left;
+    width 45%;
+    margin 0;
+
+blockquote
+    border-left color-gray 6px solid;
+    padding-left 1em;
+    color lighten(color-text, 10%);
+    font-size 1.4em;
+    margin 1.6em 20px;
+    text-align center;
+    footer 
+        font-size 14px;
+        margin 1.6em 0;
+        font-family "Helvetica Neue", Helvetica, Arial, sans-serif
+        cite:before
+            content "—"
+            padding 0 0.5em
+
+.pullquote.left
+    margin-left: 0.5em;
+    margin-right: 1em;
+
+.pullquote.right
+    margin-right: 0.5em;
+    margin-left: 1em;
+
+code
+    background: #eee;
+    text-shadow: 0 1px #fff;
+    padding: 0 0.3em;
+
+hr
+    border: 1px dashed #ddd;
+
+dt
+    font-weight: bold;
+
+dd
+dt 
+    margin-left: 1em;
+
+
+td
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+
+.article
+    &>dl
+    &>ol
+    &>ul
+        margin 1.6em 1.2em
+    
+abbr
+acronym
+    border-bottom 1px dotted
+
+table
+    width: 100%
+
+th
+    font-weight: bold
+    border-bottom: 3px solid #ddd
+    padding-bottom: 0.5em
+
+caption
+td
+th
+    text-align: left;
+    font-weight: normal;
+    vertical-align: middle;
+
+//////////////////////////////////////////////////////////////
+//              Some fix
+///////////////////////////////////////////////////////////
+#naved-link
+    &:focus
+        border: 0;
+        outline: 0;
+
+//duoshuo
+.ds-thread a 
+    no-link-effect()
+
+@media screen and (max-width:768px)
+    #ds-thread #ds-reset .ds-post-options .ds-sync
+        display: none;
+
+

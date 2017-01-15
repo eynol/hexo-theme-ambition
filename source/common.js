@@ -59,7 +59,7 @@
       " @keyframes HideS-Au2o-in { 0% { transform: translateX( 0px) rotateZ(360deg); } 100% { transform: translateX(-90px) rotateZ(0); } } @keyframes HideS-Au2o-out{ 0% { transform: translateX( -90px) rotateZ(0); } 100% { transform: translateX(0px) rotateZ(360); } }";
   document.head.appendChild(style_tag);
 
-  link_tag.className = "HideS-Au2o-top material-shadow-hover ";
+  link_tag.className = "HideS-Au2o-top material-shadow-hover-high ";
   link_tag.id = "js-HideS-Au2o";
   link_tag.href = "#";
   document.body.appendChild(link_tag);
@@ -161,42 +161,4 @@
 
 })();
 
-(function(){
-  //update time span
-  var arr_spans = document.getElementsByClassName("time-readable"),
-      Zh_cn =  ["年","个月","天"],
 
-      today = new Date();
-
-  var getString = function(str){
-      var arr = str.match(/(\d{4})-(\d{2})-(\d{2})/),
-          year = today.getFullYear() - Number(arr[1]),
-          month = today.getMonth() - Number(arr[2]) + 1,//the first month in JavaScript is zero.
-          date = today.getDate() - Number(arr[3]);
-
-          if(year !== 0){
-            return "" + year + Zh_cn[0] + "前";
-          }else{
-            if(month !== 0){
-              return "" + month +Zh_cn[1] + "前";
-            }else{
-              if(date !== 0){
-                return "" + date + Zh_cn[2] + "前";
-              }else{
-                return "今天";
-              }
-            }
-          }
-
-
-
-  };
-
-      arr_spans = [].slice.call(arr_spans);
-      arr_spans.forEach(function(el,index){
-        var a = el.innerHTML;
-        el.innerHTML = getString(a);
-      });
-
-
-})();

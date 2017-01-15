@@ -1,41 +1,97 @@
-  <% if (post.title){
+<% if (!post.title){
+    post.title = '(no title)';
+}%>
+<% if(index){
+     //post page
+    %>
+    <section class="article-intro">
+ 
+    <h1 class='title' title="Click to Read">
+        <a  href="<%- url_for(post.path) %>">
+          <%- post.title %>
+          <%if(post.title2){%>
+          <br>
+          <span class="title2"><%- post.title2 %></span>
+          <%}%>
+        </a>
+    </h1>
 
-   } else {
-     post.title = '(no title)';
-  } %>
-
-
-<h1 class='title'><% if(index){%>
-    <a  href="<%- url_for(post.path) %>"><%- post.title %></a>
-    <%}else{%>
-      <%- post.title %>
-    <%}%>
     <%if(post.link){%>
-      <a href="<%- post.link %>" style="font-size:12px; text-decoration:underline;margin-left:2em;" class="thin" target="_blank">link</a>
+        <a href="<%- post.link %>" style="font-size:12px; text-decoration:underline;margin-left:2em;" class="thin" target="_blank">link</a>
     <%}%>
-</h1>
+
+
+    
+
 <p class="detail">
-    <time datetime="<%- date(post.date,'YYYY-MM-DD HH:mm')%>" title="<%- date(post.date) %>"><span class="time-readable"><%- date(post.date)%></span></time>
+    <time datetime=" <%- date_xml(post.date) %>" title="<%- full_date(post.date) %>">
+        <%-  date(post.date, 'YYYY / M / D')  %>
+    </time>
     <% if (post.tags && post.tags.length){ %>
         <%- list_tags(post.tags, {
             style: 'a',
             show_count: false,
             separator:'/'
           }) %>
-          <% } %>
+    <% } %>
 
 </p>
 
-<% if (theme.excerpt_link){ %>
-    <% if(index && post.excerpt){%>
+<%}else{
+    //post page
+ 
+    %>
+
+    <%if(post.backgroundImage){%>
+        <img class="impression-background" src="/img/yellow-metal.jpg" alt="bg">
+    <%}%>
+
+    <section class="article-intro title-no-img">
+       <h1 class='title' title="Click to Read">
+       
+          <%- post.title %>
+          <%if(post.title2){%>
+          <br>
+          <span class="title2"><%- post.title2 %></span>
+          <%}%>
+       
+    </h1>
+
+    <%if(post.link){%>
+        <a href="<%- post.link %>" style="font-size:12px; text-decoration:underline;margin-left:2em;" class="thin" target="_blank">link</a>
+    <%}%>
+
+    
+
+<p class="detail">
+    <time datetime=" <%- date_xml(post.date) %>" title="<%- full_date(post.date) %>">
+        <%-  date(post.date, 'YYYY / M / D')  %>
+    </time>
+    <% if (post.tags && post.tags.length){ %>
+        <%- list_tags(post.tags, {
+            style: 'a',
+            show_count: false,
+            separator:'/'
+          }) %>
+    <% } %>
+
+</p>
+ 
+<%}%>
+
+
+<% if(index && post.excerpt){%>
+<div class="brief">
     <%- post.excerpt %>
-    <a href="<%- url_for(post.path) %>">
-            <%- theme.excerpt_link %>
-    </a>
-    <p class="brief">
-            <a href="<%- url_for(post.path) %>#more">
+    <p class="text-center">
+        <button>
+            <a class="readmore" href="<%- url_for(post.path) %>#more">
                 <%- theme.excerpt_link %>
             </a>
+        </button>
     </p>
-    <%}%>
-    <%} %>
+
+</div>
+<%}%>
+
+</section>

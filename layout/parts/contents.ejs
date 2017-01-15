@@ -1,21 +1,35 @@
 <section class="contents">
+<% if(where === "archive"){%>
+      <div class="title">
+    <%if(page.month){%>
+        <h1><%- page.year %>-<%- page.month %></h1>
+
+    <%}else{%>
+        <h1>List of Posts</h1>
+    <%}%>
+      </div>
+<%}%>
   <ul>
     <% page.posts.each(function(post){%>
-      <li><p><a  href="<%- url_for(post.path)%>" title="<%- post.title %>">
+      <li>
+        <p>
+        <a  href="<%- url_for(post.path)%>" title="<%- post.title %>">
         <%if(post.title){%>
           <%- post.title %>
         <%}else{%>
             (no title)
           <%}%>
-      </a><span><%- date(post.date) %></span></p></li>
+        </a><span><%- date(post.date) %></span>
+        </p>
+      </li>
     <%})%>
   </ul>
-  <nav class="pagination">
-    <% if (page.total > 1){ %>
-        <%- paginator({
-          prev_text: "&laquo;"+ __('prev'),
-          next_text: __('next') +" &raquo;"
-        }) %>
-    <% } %>
-  </nav>
+  <% if (page.total > 1){ %>
+    <nav class="pagination">
+          <%- paginator({
+            prev_text: "&laquo;"+ __('prev'),
+            next_text: __('next') +" &raquo;"
+          }) %>
+    </nav>
+  <% } %>
 </section>

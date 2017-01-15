@@ -1,18 +1,15 @@
 <%- partial('parts/firstimpression')%>
 <section class="center-wrapper article-index">
-  <% page.posts.each(function(post){ %>
-    <article>
+  <% page.posts.each(function(post){ %>    
     <%- partial('parts/articleintro', {post: post, index: true}) %>
-    </article>
   <% }) %>
-  <nav class="pagination">
-    <% if (page.total > 1){ %>
+  <% if (page.total > 1){ %>
+    <nav class="pagination">
         <%- paginator({
           prev_text: "&laquo;"+ __('prev'),
           next_text: __('next') +" &raquo;",
           format: 'page/%d/index.html#naved-link'
         }) %>
-
-    <% } %>
-  </nav>
-  </section>
+    </nav>
+  <% } %>
+</section>
