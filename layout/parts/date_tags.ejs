@@ -1,0 +1,12 @@
+<p class="detail">
+    <span class="hide-on-mobile">Published at </span><time datetime=" <%- date_xml(post.date) %>" title="<%- date_xml(post.date) %>">
+        <%-  date(post.date, 'YYYY-MM-DD')  %>
+    </time>
+    <% if (post.tags && post.tags.length){ %>
+      <span class="show-on-mobile">&nbsp;</span><span class="hide-on-mobile"> & tagged with </span><%- list_tags(post.tags, {
+            style: 'a',
+            show_count: false,
+            separator:' '
+          }) %>
+    <% } %>
+</p>

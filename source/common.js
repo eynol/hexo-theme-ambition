@@ -56,12 +56,14 @@
       ".HideS-Au2o-top:before, .HideS-Au2o-top:after,.HideS-Au2o-top:hover:before ,.HideS-Au2o-top:hover:after { content: ''; display: inline-block; position: absolute; width: 20px; height: 4px; top: 10px; left: 10px; transform-origin: center center; background-color: #989898; transform: rotateZ(45deg) translateX(8px); }"+
       ".HideS-Au2o-top:after,.HideS-Au2o-top:hover:after { right: 10px; transform: rotateZ(-45deg) translateX(-8px); }"+
       ".HideS-Au2o-top:hover{background-color:#fff;}"+
+      ".HideS-Au2o-top:active{box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.18), 0 3px 8px -2px rgba(0, 0, 0, 0.15);}"+
       " @keyframes HideS-Au2o-in { 0% { transform: translateX( 0px) rotateZ(360deg); } 100% { transform: translateX(-90px) rotateZ(0); } } @keyframes HideS-Au2o-out{ 0% { transform: translateX( -90px) rotateZ(0); } 100% { transform: translateX(0px) rotateZ(360); } }";
   document.head.appendChild(style_tag);
 
   link_tag.className = "HideS-Au2o-top material-shadow-hover-high ";
   link_tag.id = "js-HideS-Au2o";
-  link_tag.href = "#";
+  link_tag.title = "Scroll to Top";
+  link_tag.href = "javascript:window.scrollTo(0,0)";
   document.body.appendChild(link_tag);
   link_tag = style_tag = null;
 

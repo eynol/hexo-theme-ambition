@@ -33,18 +33,21 @@ color-lighten-link = #ff00b2
 
 // font-family
 font-suit-slogan()
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:  Geneva, Verdana,'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: 'liga', 'kern';
 
-
+height-footer-md = 380px
 mobile-nav-height = 240px;
 ////////////////////////////////////////
 //  global style common
 ///////////////////////////////////////
 ::selection 
-    background-color color-selection
+    background-color color-theme-dark
 
 ::-moz-selection 
-    background-color color-selection
+    background-color color-theme-dark
 
 clearfix() 
     &:after 
@@ -63,9 +66,19 @@ clearfix()
 
 .right 
     float right
+/////////////////////////////////////////////////////////
+///             Media 
+/////////////////////////////////////
+.show-on-mobile
+    display: none
+.hide-on-mobile
+    display: inline
 
-
-    
+ @media screen and (max-width:700px)   
+    .show-on-mobile
+        display: inline
+    .hide-on-mobile
+        display: none
 //////////////////////////////////////////////////////
 //          Material-shadow effect
 ///////////////////////////////////////////////////////
@@ -81,6 +94,11 @@ clearfix()
 .material-shadow-hover-high
     &:hover
         box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+.not-select
+    user-select: none
+    -moz-user-select:none 
+    -ms-user-select: none
+    -webkit-user-select: none
 
 .btn
     background-color: white
@@ -112,7 +130,10 @@ no-link-effect()
     &:hover 
         background-color transparent
         &:before 
-            display none
+            position: initial;
+            display: initial;
+            content: initial
+            background-color: transparent;
 
 link()
     margin 0 5px
@@ -178,9 +199,7 @@ p
 
 .thin 
     font-weight 100
-
  
-
 button
     padding: 5px 12px
     margin-top: 4px;
@@ -195,19 +214,28 @@ button
     -webkit-appearance: none;
     &:hover
         background-color: white
-       // box-shadow: rgba(0, 0, 0, .180392) 0 5px 11px 0, rgba(0, 0, 0, .14902) 0 4px 15px 0;
+        //box-shadow: rgba(0, 0, 0, .180392) 0 5px 11px 0, rgba(0, 0, 0, .14902) 0 4px 15px 0;
+    transition:  box-shadow .1s
+    @extends .material-shadow-hover;
+    &:active
+       box-shadow 0 3px 5px -2px rgba(0, 0, 0, 0.18), 0 3px 8px -2px rgba(0, 0, 0, 0.15)
+    a
+        no-link-effect()
 
-
+h1,h2,h3,h4,h5{
+    color: color-text
+}
 /////////////////////////////////////////////////
 //          Page Header & nav
 //////////////////////////////////////////////////
 .nav-header 
-    position absolute
-    top 0
+    position: relative
     z-index 5
     width 100%
     height 80px
     clearfix()
+    background-color: white
+    @extends .not-select;
 
 //logo 
 .logo-header
@@ -224,6 +252,10 @@ button
         letter-spacing 4px
         text-transform uppercase
         color black
+@media screen and (max-width:700px)
+    .logo-header
+        padding-left: 36px
+
 
 //nav bar
 .nav-ul 
@@ -246,6 +278,7 @@ button
 
 .nav-mobile-avator 
     display inline-block
+    float: right
     margin 2rem 3rem
     transition 0.3s
     text-decoration none
@@ -283,10 +316,10 @@ button
             background-color transparent
             &:before
                 top 0
-                transform rotateZ(135deg)
+                transform rotateZ(45deg)
             &:after
                 top 0
-                transform rotateZ(-135deg)
+                transform rotateZ(-45deg)
 
 
 .nav-mobile-avator 
@@ -307,10 +340,11 @@ button
         margin 0
         overflow hidden
         list-style none
-        transition 0.5s
         text-align center
+        transition: height .5s
         background-color white
         box-shadow 0 4px 6px rgba(0, 0, 0, .3)
+        transform: translate3d(0,0,0)
         li
             display block
             max-width 200px
@@ -321,14 +355,14 @@ button
                 padding: 0.5rem 10px;
         &.active
             height: mobile-nav-height;
-            animation: menu-out 1.2s;
+            animation: menu-out .5s;
 
 @keyframes menu-out {
     0% {
         height: 0;
     }
-    30% {
-        height: 0;
+    5%{
+        height:0
     }
     100% {
         height: mobile-nav-height;
@@ -342,10 +376,8 @@ button
     position: relative;
     min-height: 100%;
     width: 100%;
-    padding-top: 80px;
     box-sizing: border-box;
-    padding-bottom: 150px;
-   
+    overflow: hidden;
 
 .center-wrapper
     max-width: 700px;
@@ -358,6 +390,7 @@ button
 .impression-background
     position: absolute;
     z-index: -1;
+    top: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -369,6 +402,7 @@ button
     //background-size: 100%;
     text-align: left;
     h1
+        color: inherit
         font-size: 7rem;
         white-space: pre;
         font-suit-slogan()
@@ -379,8 +413,14 @@ button
 
 @media screen and (max-width:700px)
     .first-impression
-        background: color-theme;
+        background: color-theme-dark;
         padding: 1rem 0;
+        h1
+            font-size: 2rem
+            span
+                padding: 5px 0
+                color: color-theme-dark
+                background-color: black
     .impress-words
         padding: 1rem;
 
@@ -389,33 +429,29 @@ button
 ////////////////////////////////
 //          Article entry
 //////////////////////////////////////
-
 .title
     position relative
     margin-bottom 0
     font-size 48px
     line-height 54px
     font-weight 700
-    &:after
-        position absolute
-        bottom: -6px
-        left: 0
-        content ""
-        width 8rem
-        height: 3px
-        background-color color-theme-dark
-        transition width .3s
-    &:hover:after
-        width 100%
     a
         font-size inherit
         color color-text
         no-link-effect()
         padding 0
         .title2
-            font-size: 32px
+            font-size: 2rem
      .title2
-            font-size: 32px
+            font-size: 2rem
+
+@media screen and (max-width:700px)
+    .title
+        font-size: 2rem;
+        line-height: 2.33rem;
+        .title2
+            font-size: 1rem
+
 
 .detail
     font-size 0.7rem
@@ -428,28 +464,38 @@ button
     .tag-link
         color color-gray
         font-size  0.7rem
+        no-link-effect()
+        @extends  button ;
         &:hover
-            color black
-
-.brief button{
-    transition:  box-shadow .3s
-    @extends .material-shadow-hover
-}
+            color color-blue
+            background-color: white
 
 .readmore
-    no-link-effect()
-    color color-text
+    color: color-text
     font-weight: 400
+    &:hover
+        color: color-blue
  
+
+
+ .article-index 
+    .title a
+        &:hover
+            background-color:color-theme
+    section 
+        padding: 5px 0;
+        margin-bottom: 4rem;
+
+
 ////////////////////////////////////
-//                post
+//                Post
 //////////////////////////////////////////
 // .article-intro
 //     .title a
 //         font-size: 3rem;
 
-.article-intro
-    position: relative;
+// .article-intro
+//     position: relative;// 
 
 // .video-container 
 //     position relative
@@ -464,10 +510,16 @@ button
 //         height 100%
 //         margin-top 0
 
+
+///////////////////////////////
+//          Article With No Cover
+//////////////////////////////////////////
+
 .title-no-img
     //position relative
     //padding-top 56.25%
     //height 0
+    width: 100%;
     overflow: hidden
     box-sizing: border-box
     background: url("/img/photography.png") repeat
@@ -480,66 +532,156 @@ button
         text-align: center
         font-suit-slogan()
         text-transform: uppercase;
-        &:before
-        &:after
-            display: none
     .detail
-        background-color: whitesmoke;
+        background-color: #fafafa;;
         text-align: center
         margin-top: 20px
         margin-bottom:20px
         @extends .center-wrapper;
+       
+
+
+
 
 @media screen and (min-width:1400px)
-    .title-section
+    .title-no-img
         background: url("/img/photography_@2X.png") repeat
- 
+       
+@media screen and (max-width:700px)
+    .title-no-img
+         h1
+            font-size: 1.3rem
+            line-height: 1
+            padding-top: 3rem
+
+///////////////////////////////
+//          Article With Cover & Title's Style
+//////////////////////////////////////////
+
+.title-with-img
+    position relative
+    padding-top 40.25%
+    height 0
+    @extends .material-shadow-inset-bottom;
+    &:before
+        position absolute
+        content: ""
+        z-index: -1
+        top 0
+        left 0
+        width 100%
+        height 100%
+        margin-top 0
+        object-fit: cover 
+        background-color: rgba(13,13,13,.13)
+    .cover-img
+        position absolute
+        z-index: -2
+        top 0
+        left 0
+        width 100%
+        height 100%
+        margin-top 0
+        object-fit: cover
+        background-color: white 
+    .cover-fit
+        object-fit: contain
+
+.title-container
+    position: absolute
+    bottom: 30px
+    text-align: center
+    width: 100%;
+    h1
+        font-suit-slogan()
+        display: inline-block
+        color: white
+        font-size:  4rem;
+    .detail
+        text-align: inherit
+        color:white
+        .tag-link
+            background-color:transparent
+            border:1px solid white
+            color:inherit
+            &:hover
+                color:color-black
+                background-color: white
+                box-shadow: none
+  
 
 .headerlink
     display: none;
 
 
+@media screen and (max-width:700px)
+    .title-with-img
+        padding-top 56.25%
+    .title-container
+        h1
+            font-size: 1.3rem
+            line-height: 1
+//////////////////////////////////////
+//          Article Content
+////////////////////////////////
 .article
-    color: color-title-color1;
+    color: color-text;
     padding: 1.2rem 0.7rem 1rem;
     p
         margin: 1rem 0;
-        color: color-title-color2;
+    h1
+    h2
+    h3
+    h4
+    h5
+        font-weight: 400;
 
-.article-index section 
-    padding: 5px 0;
-    margin-bottom: 2rem;
 
-.contents
-    min-height: 100vh;
-    max-width: 700px;
-    margin: auto;
-    padding: 2rem 5px 5px 100px;
-    ul
-        list-style: none;
-    li
-        position: relative;
-        span
-            position absolute
+////////////////////////////
+//          Archives 
+/////////////////////////////////////
+.archive-list-wrapper
+    min-height: 70vh;
+    width: 100%
+    .title-no-img h1 
+        padding: 2rem 0
+    .archive-list
+        max-width: 700px;
+        margin: auto;
+        padding: 2rem 5px 5px 120px;
+        box-sizing: border-box;
+        ul
+            list-style: none;
+        li
+            position: relative;
+        a
             display inline-block
-            width 90px
-            background #fff
-            left 0
-            margin-left -120px
-            opacity 0.4
-            transition opacity 0.3s
-        &:hover span
-                opacity: 0.8;
-    a
-        display inline-block
-        no-link-effect()
-        &:hover 
-            color lighten-link
-        // position:static;
+            no-link-effect()
+            transition: background-color .3s
+            &:hover
+                background-color: color-theme
+            // position:static;
+.tags-list
+    max-width: 699px;
+    margin: auto;
+    .tag-list
+        position: relative
+.archive-list  
+    position: relative
 
-.article-list
-    min-height: 100%;
-
+.achive-link
+    &:hover
+        text-decoration: underline
+.archive-post-date
+    position: absolute
+    left: 0
+    width: 120px
+    margin:3px 0 0 (-@width)
+    color: color-gray
+    transition: color .3s
+.archive-list p:hover
+    .archive-post-date
+        color:color-text
 @media screen and (max-width:768px)
     .contents
         padding: 1rem;
@@ -550,10 +692,47 @@ button
                 margin-bottom: 1rem;
 
 
+.archive-list
+.tag-list 
+    list-style none;
+    text-align: center
+    padding 16px 0 30px
+.archive-list-item
+.tag-list-item 
+    position relative;
+    display inline-block;
+    a
+        @extends button
+        color:color-blue
+        background-color: transparent
+        display inline-block;
+        box-sizing border-box;
+        margin 5px;
+        border-radius 3px;
+        padding 5px 40px 5px 10px ;
+        box-sizing border-box;
+        no-link-effect()
+        @extends .material-shadow
+
+.archive-list-count
+.tag-list-count
+    position absolute;
+    top: 10px;
+    right: 15px;
+    z-index -1;
+    color: color-gray
+
+.article-nav-link-wrap 
+    no-link-effect()
+    border-bottom 1px solid transparent;
+    &:hover 
+        border-bottom: 1px solid yellow;
+
 //////////////////////////////////////////////////////////
 //           Pagination
 ///////////////////////////////////////////////////////////
 .pagination
+    @extends .not-select;
     margin: 2rem 0 3rem;
     text-align: center;
     ul
@@ -580,51 +759,90 @@ button
 //          Page's footer 
 //////////////////////////////////////////////////////////
 .main-wrapper>footer
-    position: absolute;
-    bottom: 0;
     box-sizing: border-box;
     padding: 3rem 0 2rem;
     width: 100%;
-    height: 150px;
-    text-align: center;
     background-color: color-theme-dark
+    clearfix()
+    @extends .not-select;
+    h1,h2,h3,h4,h5
+        color: black
 
-
-//////////////////////////////////////////////////////////////////////////
-// hexo default
-//////////////////////////////////////////////////////////////////////////
-.archive-list
-.tag-list 
-    list-style none;
-
-.archive-list-item
-.tag-list-item 
-    position relative;
-    display inline-block;
-    width 200px;
-    border 1px solid #ddd;
-    border-radius 3px;
-    box-sizing border-box;
-    margin 5px;
+footer-link()
     a
-        display inline-block;
-        width 200px;
-        padding 5px 10px;
-        box-sizing border-box;
         no-link-effect()
+        margin:0 .67em
+        color:black
+        padding: 0
+        &:hover
+            text-decoration: underline
+       
 
-.archive-list-count
-.tag-list-count
-    position absolute;
-    top 5px;
-    right 5px;
-    z-index -1;
 
-.article-nav-link-wrap 
-    no-link-effect()
-    border-bottom 1px solid transparent;
-    &:hover 
-        border-bottom: 1px solid yellow;
+.footer-nav
+    width: 250px
+    float: right
+    display: inline-block
+    box-sizing: border-box
+    margin-top: 3.34rem
+    li
+        list-style: none
+        display: block
+        margin-bottom: 10px
+        a
+            background: black
+            color:color-theme
+            &:hover
+                text-decoration: underline
+                &:before
+                    display: none
+                
+.friends-link
+    margin-right: 250px
+    box-sizing: border-box
+    padding-left: 10rem
+    footer-link()
+.footer-info    
+    text-align: center
+    color: color-theme
+    background-color: black
+    padding: 16px
+    a
+        no-link-effect()
+        color: inherit
+        padding: 0
+        &:hover
+            text-decoration: underline
+           
+
+@media screen and (max-width:700px)
+    .footer-nav
+        float: none
+        a
+            font-size: 1.3rem
+            padding-left: 2rem
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+    .friends-link
+        padding-left: 2rem
+        margin-right: 0
+        a
+            font-weight: 900
+            text-decoration: underline
+
+////////////////////////////////////////////////////////////
+//              About
+//////////////////////////////////////////////////////////////
+.about-wrapper
+    padding-bottom: 5rem
+    .title-no-img h1
+        padding: 2rem 0;
+    
+
+
+
+//////////////////////////////////////////////////////////////////////////
+//              Hexo Default
+//////////////////////////////////////////////////////////////////////////
 
 .highlight 
     background: #2d2d2d;
@@ -757,11 +975,14 @@ th
 //////////////////////////////////////////////////////////////
 //              Some fix
 ///////////////////////////////////////////////////////////
+#more
 #naved-link
+    display: none
     &:focus
         border: 0;
         outline: 0;
 
+    
 //duoshuo
 .ds-thread a 
     no-link-effect()

@@ -1,6 +1,6 @@
 <nav class="nav-header material-shadow">
     <div class="logo-header">
-        <a href="<%- url_for() %>"><%= config.title %></a>
+        <a href="<%- url_for() %>" title="Jump to Homepage"><%= config.title %></a>
     </div>
     <div class="nav-mobile-avator" id="js-toggle-nav">
           <span></span>
@@ -8,7 +8,7 @@
     <div class="nav-ul">
         <ul>
         <% for (var i in theme.menu){ %>
-        <li><a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a></li>
+        <li><a class="main-nav-link" title="Jump to <%= i %>" href="<%- url_for(theme.menu[i]) %>"><%= i %></a></li>
         <% } %>
         </ul>
     </div>

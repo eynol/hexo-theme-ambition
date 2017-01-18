@@ -1,54 +1,54 @@
-# Header
+# Header navgation menu,
+# displayed on the top header and the bottom footer
 menu:
   Home: /
-  Archives: /archives
+  Archives: /archives/index.html
   Tags: /tags/index.html
-  GitHub: https://github.com/vankai
   About: /about.html
 
+
+# impression words,
+# this displays on homepage
+impression: 「倘只看书   <br>   便变成书橱」 
+
+#GitHub: https://github.com/vankai
 
 
 
 rss: /atom.xml
 
+# Your Email, 
+# this display on the footer
+email: mr.taokai@foxmail.com
+
 
 # prefetch control
 prefetchControl: true
 
-# prefetch some sites' ip
+# prefetch some sites' dns ,shorten your request's
 prefetch:
   - https://github.com
-  - https://heitaov.cn
-
+  - https://www.heitaov.cn
 # pre-render !this will spend many resource
 preRender:
-  - /archives/
-  - /tags/
+  - /archives/index.html
+  - /tags/index.html
+  - https://github.com/vankai/
+  - https://www.heitaov.cn
 
-# Content
-excerpt_link: ◇ 查看全文 ◇
+# Content translation
+#excerpt_link: ◇ 查看全文 ◇
+excerpt_link: Read More
 next_post: 下一篇
 prev_post: 上一篇
 
-# duoshuo
+# Duoshuo
 duoshuo: true
 
-# display widgets at the bottom of index pages (pagination == 2)
-# index_widgets:
-# - category
-# - tagcloud
-# - archive
-
 # widget behavior
-archive_type: 'monthly'
+# control the archives's page
+archive_type: 'yearly'
 show_count: false
 
-# Miscellaneous
-
+# Site's icon
 favicon: /favicon.ico
-
-
-less:
-  compress: true
-  paths:
-    - css

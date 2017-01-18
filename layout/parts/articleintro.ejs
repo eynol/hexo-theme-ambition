@@ -1,97 +1,44 @@
-<% if (!post.title){
-    post.title = '(no title)';
-}%>
-<% if(index){
-     //post page
-    %>
-    <section class="article-intro">
- 
-    <h1 class='title' title="Click to Read">
-        <a  href="<%- url_for(post.path) %>">
-          <%- post.title %>
-          <%if(post.title2){%>
-          <br>
-          <span class="title2"><%- post.title2 %></span>
-          <%}%>
-        </a>
-    </h1>
 
-    <%if(post.link){%>
-        <a href="<%- post.link %>" style="font-size:12px; text-decoration:underline;margin-left:2em;" class="thin" target="_blank">link</a>
-    <%}%>
+<%if(post.cover){%>
+        <section class="article-intro title-with-img">
+        <img class="cover-img <%- post.fit?'cover-fit':''%>" src="<%- post.cover%>" alt="bg">
+        <div class="title-container">
+            <h1 class='title' title="Click to Read">
+           <span class="title1">
+                <%- post.title %>
+            </span>
+            <%if(post.title2){%>
+            <br>
+            <span class="title2"><%- post.title2 %></span>
+            <%}%>
+        
+        </h1>
 
+        <%if(post.link){%>
+            <a href="<%- post.link %>" style="font-size:12px; text-decoration:underline;margin-left:2em;" class="thin" target="_blank" rel="noopener">link</a>
+        <%}%>
 
-    
+       <%- partial('parts/date_tags', {post: post}) %>
+        </div>
+        </section>
 
-<p class="detail">
-    <time datetime=" <%- date_xml(post.date) %>" title="<%- full_date(post.date) %>">
-        <%-  date(post.date, 'YYYY / M / D')  %>
-    </time>
-    <% if (post.tags && post.tags.length){ %>
-        <%- list_tags(post.tags, {
-            style: 'a',
-            show_count: false,
-            separator:'/'
-          }) %>
-    <% } %>
+<%}else{%>
+            
+        <section class="article-intro title-no-img">
+            <h1 class='title' title="Click to Read">
+            
+                <%- post.title?post.title:"(No title)" %>
+                <%if(post.title2){%>
+                    <br>
+                    <span class="title2"><%- post.title2 %></span>
+                <%}%>
+            
+        </h1>
 
-</p>
+        <%if(post.link){%>
+            <a href="<%- post.link %>" style="font-size:12px; text-decoration:underline;margin-left:2em;" class="thin" target="_blank"  rel="noopener">link</a>
+        <%}%>
 
-<%}else{
-    //post page
- 
-    %>
-
-    <%if(post.backgroundImage){%>
-        <img class="impression-background" src="/img/yellow-metal.jpg" alt="bg">
-    <%}%>
-
-    <section class="article-intro title-no-img">
-       <h1 class='title' title="Click to Read">
-       
-          <%- post.title %>
-          <%if(post.title2){%>
-          <br>
-          <span class="title2"><%- post.title2 %></span>
-          <%}%>
-       
-    </h1>
-
-    <%if(post.link){%>
-        <a href="<%- post.link %>" style="font-size:12px; text-decoration:underline;margin-left:2em;" class="thin" target="_blank">link</a>
-    <%}%>
-
-    
-
-<p class="detail">
-    <time datetime=" <%- date_xml(post.date) %>" title="<%- full_date(post.date) %>">
-        <%-  date(post.date, 'YYYY / M / D')  %>
-    </time>
-    <% if (post.tags && post.tags.length){ %>
-        <%- list_tags(post.tags, {
-            style: 'a',
-            show_count: false,
-            separator:'/'
-          }) %>
-    <% } %>
-
-</p>
- 
+        <%- partial('parts/date_tags', {post: post}) %>
+        </section>
 <%}%>
-
-
-<% if(index && post.excerpt){%>
-<div class="brief">
-    <%- post.excerpt %>
-    <p class="text-center">
-        <button>
-            <a class="readmore" href="<%- url_for(post.path) %>#more">
-                <%- theme.excerpt_link %>
-            </a>
-        </button>
-    </p>
-
-</div>
-<%}%>
-
-</section>

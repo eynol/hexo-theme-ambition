@@ -1,7 +1,8 @@
 <%- partial('parts/firstimpression')%>
+<a href="javascript:;" id="naved-link"></a>
 <section class="center-wrapper article-index">
   <% page.posts.each(function(post){ %>    
-    <%- partial('parts/articleintro', {post: post, index: true}) %>
+    <%- partial('parts/articlenutshell', {post: post}) %>
   <% }) %>
   <% if (page.total > 1){ %>
     <nav class="pagination">

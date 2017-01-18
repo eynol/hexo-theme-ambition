@@ -1,0 +1,28 @@
+  <section class="article-intro">
+ 
+    <h1 class='title' title="Click to Read">
+        <a  href="<%- url_for(post.path) %>">
+          <%- post.title?post.title:"(No Title)" %>
+          <%if(post.title2){%>
+          <br>
+          <span class="title2"><%- post.title2 %></span>
+          <%}%>
+        </a>
+    </h1>
+
+    <%if(post.link){%>
+        <a href="<%- post.link %>" style="font-size:12px; text-decoration:underline;margin-left:2em;" class="thin" target="_blank"  rel="noopener">link</a>
+    <%}%>
+
+    <% if( post.excerpt){%>
+    <div class="brief">
+        <%- post.excerpt %>
+        <button >
+                <a class="readmore" href="<%- url_for(post.path) %>" title="Click to Read More">
+                    <%- theme.excerpt_link %>
+                </a>
+            </button>
+    </div>
+    <%}%>
+    <%- partial('parts/date_tags', {post: post}) %>
+</section>

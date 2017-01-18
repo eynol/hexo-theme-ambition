@@ -1,8 +1,27 @@
 <footer class="material-shadow-inset-top">
-  <div class="outer">
-    <div id="footer-info" class="inner text-center">
-      &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %><br>
-      <%= __('powered_by') %> <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
+  <div class="footer-nav">
+    <ul>
+      <% for (var i in theme.menu){ %>
+        <li>
+          <a class="footer-nav-link" href="<%- url_for(theme.menu[i]) %>" title="Jump to <%= i %>">
+            <%= i %>
+          </a>
+        </li>
+        <% } %>
+    </ul>
+  </div>
+  <div class="friends-link">
+    <h1>Friends Of Mine</h1>
+    <p><a href="#" target="_blank" rel="noopener" title="Click to open a new page of this link">your friends</a></p>
+    <h1>Other Links</h1>
+    <p>
+      <a href="#" title="This Blog Is Both Deployed At GitHub(for global) And Coding.net(for mainland China) ">GitHub</a><a
+        href="#" title="This Blog Is Both Deployed At GitHub(for global) And Coding.net(for mainland China) ">Coding.net</a></p>
+  </div>
+  <div id="footer-info" class="footer-info">
+    &copy;
+    <%= date(new Date(), 'YYYY') %>
+      <%= config.author || config.title %> <span class="show-on-mobile"><br></span><%- mail_to(theme.email)%><br>
+        <%= __('powered_by') %> <a href="http://hexo.io/" target="_blank">Hexo</a> Themed with <a href="https://github.com/vankai/ambition" target="_blank">Ambition</a>
   </div>
 </footer>
