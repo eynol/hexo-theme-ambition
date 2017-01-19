@@ -257,6 +257,8 @@ h1,h2,h3,h4,h5{
         padding-left: 36px
 
 
+
+
 //nav bar
 .nav-ul 
     float right
@@ -280,7 +282,6 @@ h1,h2,h3,h4,h5{
     display inline-block
     float: right
     margin 2rem 3rem
-    transition 0.3s
     text-decoration none
     span 
         position relative
@@ -345,6 +346,9 @@ h1,h2,h3,h4,h5{
         background-color white
         box-shadow 0 4px 6px rgba(0, 0, 0, .3)
         transform: translate3d(0,0,0)
+        ul
+            position: absolute;
+            width: 100%;    
         li
             display block
             max-width 200px
@@ -992,3 +996,12 @@ th
         display: none;
 
 
+///////////////////////
+//       enhance PWA exprience
+////////////////////////////////
+@media all and (display-mode: standalone) 
+    .nav-header
+        position: fixed
+        top: 0;
+    .main-wrapper
+        margin-top: 80px

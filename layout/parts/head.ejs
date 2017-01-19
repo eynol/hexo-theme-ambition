@@ -1,7 +1,14 @@
 <head>
     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="black"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="manifest" href="/manifest.json">
+<meta name="application-name" content="Vankai">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="/vankai_icon_4x.png"> 
+<link rel="icon" sizes="128x128" href="/vankai_icon_3x.png">
 
 <% var title = page.title;
 
@@ -26,21 +33,20 @@ if (is_archive()){
   <%= config.title %>
 </title>
 
-<%if(theme.prefetchControl){%><meta http-equiv='x-dns-prefetch-control' content='on'><%}%>
 
 <%if(theme.prefetch && theme.prefetch.length>0){%>
   <%for(var xp = 0,lenxp = theme.prefetch.length;xp <lenxp;xp++){%>
-    <link rel="dns-prefetch" href="<%- theme.prefetch[xp] %>">
+    <link rel="dns-prefetch" href="<%- theme.dnsprefetch[xp] %>">
   <%}} %>
   <%if(theme.preRender && theme.preRender.length>0){%>
     <%for(var pr = 0,lenxp = theme.preRender.length;pr <lenxp;pr++){%>
-  <link rel="prerender" href="<%- theme.preRender[pr] %>">
+  <link rel="prerender" href="<%- theme.prerender[pr] %>">
 <%}} %>
 
 <%if(theme.favicon){%><link rel="shortcut icon" href="<%- theme.favicon %>"><% }%>
 
 
 <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-<%- css('css/style-common') %>
-<%- css('css/highlight') %>
+<%- partial('parts/google-analytics') %>
+<%- css('css/all') %>
 </head>

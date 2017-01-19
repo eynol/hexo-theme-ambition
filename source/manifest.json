@@ -1,0 +1,36 @@
+{
+  "short_name": "Vankai",
+  "name": "Vankai's Blog",
+  "icons":[
+    {
+      "src": "vankai_icon_1x.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "vankai_icon_1_5x.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "vankai_icon_2x.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "vankai_icon_3x.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "vankai_icon_4x.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#000",
+  "background_color": "#FFF"
+}

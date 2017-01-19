@@ -7,8 +7,12 @@ menu:
   About: /about.html
 
 
-# impression words,
+# Impression words
 # this displays on homepage
+# Notice:the impression words is display with 'pre' tag style ,you may need to
+# add some whitespaces to beautify what is your words look like.
+# If you don't like this , you may modify 'firstimpression.ejs' file and 
+# the firstimpression part of the 'style-common.styl' file.
 impression: 「倘只看书   <br>   便变成书橱」 
 
 #GitHub: https://github.com/vankai
@@ -18,26 +22,27 @@ impression: 「倘只看书   <br>   便变成书橱」
 rss: /atom.xml
 
 # Your Email, 
-# this display on the footer
+# this display on the footer part
 email: mr.taokai@foxmail.com
 
 
-# prefetch control
-prefetchControl: true
-
-# prefetch some sites' dns ,shorten your request's
-prefetch:
-  - https://github.com
-  - https://www.heitaov.cn
-# pre-render !this will spend many resource
-preRender:
-  - /archives/index.html
-  - /tags/index.html
+# prefetch some sites' dns
+# add your CDN provider's domain name to this list
+dnsprefetch:
   - https://github.com/vankai/
-  - https://www.heitaov.cn
+  - https://vankai.github.io/
+  - https://tomato3.coding.me/
+  - https://www.heitaov.cn/
+  - http://blog.54yh.cn/
 
+# pre-render 
+# this 
+prerender:
+  - /
+  - /archives/
+  - /tags/
+  - /about/
 # Content translation
-#excerpt_link: ◇ 查看全文 ◇
 excerpt_link: Read More
 next_post: 下一篇
 prev_post: 上一篇
@@ -52,3 +57,6 @@ show_count: false
 
 # Site's icon
 favicon: /favicon.ico
+
+# Google Analytics
+google_analytics: UA-89535578-1
