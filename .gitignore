@@ -2,3 +2,4 @@ dev/
 dev/*
 dist/
 dist/*
+.vscode/
