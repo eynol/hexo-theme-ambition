@@ -10,7 +10,7 @@
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#000",
-  "background_color": "#FFF",
+  "background_color": "#FFF500",
   "icons": [{
       "src": "vankai_icon_1x.png",
       "sizes": "48x48",

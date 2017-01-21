@@ -3,9 +3,25 @@
 
 # Intro
 
+Using service worker to enhance offline experience.
+
+**Online's resources first**, only a few of files are precached(more specific, please read the `sw.js`).
+
+When you are offline, the blog pages you **have been visited** can be responed like online, while other cross-origin requests are always unreachable.You may have to change the service worker's rules to cache your CDN resources.
+
+
+# Feature
+
+- You could write your post in two languages, just add a `title2` member to your header of the post.
+
+- Your post's title may have a background image, just add a `cover` member to your header of the post.
+The value of cover is a URL `String`, and the image will full covered your title content's background. 
+If your image is a low resolution picture, you may add a `fit` memeber and set it to be `true` to your header of the post.
+
+
 # Install
 
-1.Clone
+## 1.Clone
 
 Open your Hexo project folder and Clone this project into `/themes/`.If you don't have a hexo project, please visit Hexo official site to start.
 
@@ -17,7 +33,7 @@ When it's done,this theme should be in path like this:`/Your Hexo Root Folder/th
 
 Then modify the property `theme` of the file `/Your Hexo Root Folder/_config.yml` to `theme: ambition`.
 
-2.Packages.json
+## 2.Packages.json
 
 Add required packages into your `packages.json`, add the dependecies packages you don't have.
 ```
@@ -41,7 +57,7 @@ Add required packages into your `packages.json`, add the dependecies packages yo
 ```
 After you modified your `packages.json`, please run command `npm install` to install those packages.
 
-3.Root Config File
+## 3.Root Config File
 
 My `/Hexo_project_root/_config.yml` file is like this.Append the key&value you don't have and modify some values to yours.
 ```
@@ -143,28 +159,30 @@ From now on, you can write your posts and generate a site with a default look.
 
 # Do It Yourself
 
-Most of the words can be changed in `/Your_Hexo_Project_Root_Folder/themes/ambition/_config.yml`.
+- Most of the words can be changed in `/Your_Hexo_Project_Root_Folder/themes/ambition/_config.yml`.
 
-The homepage's wallpaper can be changed in `/ambition/layout/parts/firstimpression.ejs` and `/ambition/source/img/`.
+- The homepage's wallpaper can be changed in `/ambition/layout/parts/firstimpression.ejs` and `/ambition/source/img/`.
 
-The `footer` can be changed in `/ambition/layout/parts/footer.ejs`.
+- The `footer` can be changed in `/ambition/layout/parts/footer.ejs`.
 
-The `about` page can be changed in `/ambition/layout/about.ejs`.
+- The `about` page can be changed in `/ambition/layout/about.ejs`.
 
-The main stylesheet rules can be changed in `/ambition/source/style-common.styl`.
+- The main stylesheet rules can be changed in `/ambition/source/style-common.styl`.
 
-In this `manifest.json` ,you should change values to yours, such as `name` `icons` `theme_color`.
+- In this `manifest.json` ,you should change values to yours, such as `name` `icons` `theme_color`.
 
-You can change the `PRECACHE_URLS` in `/ambition/sw.js`.
+- You can change the `PRECACHE_URLS` in `/ambition/sw.js`.
 
 
 # **Attention！**
-This theme is using service worker to cache pages, and your blog must deployed with `https` protocol.
-And **every time** you update your blog, you **have to** change the value of `PRECACHE` in `source/sw.js` file.
+This theme is using service worker to cache pages, and your blog must deployed with `https` scheme.
+
+And **every time** you update your blog's resources, such as wallpapers, javascript etc, you **have to** change the value of `PRECACHE` in `source/sw.js` file.
+So that the new version of your `PRECACHE_URLS` files can be update.
 
 If you don't want to using service worker, do following steps to disable it.
 
-1.Modify the manifest.json 
+## 1.Modify the manifest.json 
 
 Delete the `serviceworker` member of `manifest.json` file.
 ```
@@ -207,7 +225,7 @@ Delete the `serviceworker` member of `manifest.json` file.
 ```
 
 
-2.Comment out the `service worker` part in `common.js` file.
+## 2.Comment out the `service worker` part in `common.js` file.
 
 ```
 ...
@@ -218,5 +236,6 @@ Delete the `serviceworker` member of `manifest.json` file.
 //}
  
 ```
+
 
 
