@@ -1,0 +1,60 @@
+////////////////////////////////
+//          Article entry
+//////////////////////////////////////
+.title
+    position relative
+    margin-bottom 0
+    font-size 48px
+    line-height 54px
+    font-weight 700
+    a
+        font-size inherit
+        color color-text
+        no-link-effect()
+        padding 0
+        .title2
+            font-size: 2rem
+     .title2
+            font-size: 2rem
+
+@media screen and (max-width:700px)
+    .title
+        font-size: 2rem;
+        line-height: 2.33rem;
+        .title2
+            font-size: 1rem
+
+
+.detail
+    font-size 0.7rem
+    margin-bottom 0.3rem
+    color color-gray
+    time
+        position relative
+        display inline-block
+        padding-right 5px 
+    .tag-link
+        color color-gray
+        font-size  0.7rem
+        no-link-effect()
+        @extends  button ;
+        &:hover
+            color color-blue
+            background-color: white
+
+.readmore
+    color: color-text
+    font-weight: 400
+    &:hover
+        color: color-blue
+ 
+
+
+ .article-index 
+    .title a
+        &:hover
+            background-color:color-theme
+    section 
+        padding: 5px 0;
+        margin-bottom: 4rem;
+

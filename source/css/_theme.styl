@@ -1,0 +1,335 @@
+////////////////////////////
+// global variabl commmon
+//////////////////////
+
+// colors 
+color-theme = rgb(255,247,0)
+color-theme-dark = rgb(254,230,0)
+color-selection =  #fff500
+
+
+color-black = #1a1a1a
+color-text = #464646
+color-text2 = #666666 
+color-ignore = #767676
+
+color-graypanel = #FAFAFA
+color-gray = #aaa
+color-gray-border = #e5e5e5 
+color-yellow = #f5de43
+//@yellow: #fff500;
+color-yellow-normal = #f5de43
+color-red = #ff6262 //now
+color-title-color1 = #2f2f2f
+color-title-color2 = #404040
+color-gray = #c8c8c8
+color-purple = #c10087
+color-blue = rgb(0,162,178)
+color-lighten-link = #ff00b2
+
+
+
+
+// font-family
+font-suit-slogan()
+    font-family:  Geneva, Verdana,'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: 'liga', 'kern';
+
+height-footer-md = 380px
+mobile-nav-height = 240px;
+////////////////////////////////////////
+//  global style common
+///////////////////////////////////////
+::selection 
+    background-color color-theme-dark
+
+::-moz-selection 
+    background-color color-theme-dark
+
+clearfix() 
+    &:after 
+        content ""
+        display table
+        clear both
+
+.clearfix
+    clearfix()
+
+.text-center 
+    text-align center
+
+.left 
+    float left
+
+.right 
+    float right
+/////////////////////////////////////////////////////////
+///             Media 
+/////////////////////////////////////
+.show-on-mobile
+    display: none
+.hide-on-mobile
+    display: inline
+
+ @media screen and (max-width:700px)   
+    .show-on-mobile
+        display: inline
+    .hide-on-mobile
+        display: none
+//////////////////////////////////////////////////////
+//          Material-shadow effect
+///////////////////////////////////////////////////////
+.material-shadow
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+.material-shadow-inset-top
+    box-shadow: inset 0 16px 7px -10px rgba(0,0,0,0.16), inset 0 8px 20px -16px rgba(0,0,0,0.12)
+.material-shadow-inset-bottom
+    box-shadow: inset 0 -5px 10px -7px rgba(0,0,0,0.16), inset 0 -4px 12px -4px rgba(0,0,0,0.12)
+.material-shadow-hover
+    &:hover
+        box-shadow: 0 5px 11px -3px rgba(0, 0, 0, 0.18), 0 4px 15px -3px rgba(0, 0, 0, 0.15);
+.material-shadow-hover-high
+    &:hover
+        box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+.not-select
+    user-select: none
+    -moz-user-select:none 
+    -ms-user-select: none
+    -webkit-user-select: none
+
+.btn
+    background-color: white
+    color: black
+    border-radius: 3px
+    padding: 5px 10px
+    transition: 0.3s
+    @extends .material-shadow
+    @extends .material-shadow-hover
+
+    
+//////////////////////////////////////////////////////
+//          Link effect
+///////////////////////////////////////////////////////
+link-hover-effect()
+    &:hover
+        background-color: color-theme;
+        &:before
+            position absolute
+            display inline-block
+            content ""
+            top 0
+            bottom 0
+            left -5px
+            width 5px
+            background-color black
+
+no-link-effect() 
+    &:hover 
+        background-color transparent
+        &:before 
+            position: initial;
+            display: initial;
+            content: initial
+            background-color: transparent;
+
+link()
+    margin 0 5px
+    font-weight 400
+    position relative
+    link-hover-effect()
+
+
+
+
+
+    
+//////////////////////////////////////////////////////
+//          Image
+///////////////////////////////////////////////////////
+img 
+    max-width 100%
+    margin auto
+    display block
+
+.article>p>img::after 
+        content attr(alt)
+        display block
+        width 90%
+        margin auto
+    
+//////////////////////////////////////////////////////
+//           Video
+///////////////////////////////////////////////////////
+.video-container 
+    position relative
+    padding-top 56.25%
+    height 0
+    overflow hidden
+    iframe 
+        position absolute
+        top 0
+        left 0
+        width 100%
+        height 100%
+        margin-top 0
+
+///////////////////////////////////////////////////
+//          Reset elements
+//////////////////////////////////////////////////
+a
+    position relative
+    font-size 1rem
+    font-weight 300
+    text-decoration none
+    color color-blue
+    padding 2px 8px
+    link-hover-effect()
+
+p
+    font-size 1rem
+    font-weight 400
+    line-height 1.7
+    margin 0.5rem 0
+    color  color-text
+    text-align justify
+
+
+.thin 
+    font-weight 100
+ 
+button
+    margin-top: 4px;
+    transition: 0.3s;
+    color: #fff;
+    border:none
+    //border: 1px solid color-gray-border;
+    border-radius: 3px;
+    outline: none;
+    background-color: white
+    box-shadow: rgba(0,0,0,0.157) 0 0px 1px 0px, rgba(0,0,0,0.118) 0 2px 1px 0
+    -webkit-appearance: none;
+    &:hover
+        background-color: white
+        //box-shadow: rgba(0, 0, 0, .180392) 0 5px 11px 0, rgba(0, 0, 0, .14902) 0 4px 15px 0;
+    transition:  box-shadow .1s
+    @extends .material-shadow-hover;
+    &:active
+       box-shadow 0 3px 5px -2px rgba(0, 0, 0, 0.18), 0 3px 8px -2px rgba(0, 0, 0, 0.15)
+    a
+        no-link-effect()
+        display: inline-block
+        padding: 5px 20px
+
+h1,h2,h3,h4,h5{
+    color: color-text
+}
+
+//////////////////////////////////////////////////////////////
+//             Content wrapper
+////////////////////////////////////////////////////////////
+.main-wrapper
+    position: relative;
+    min-height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+
+.center-wrapper
+    max-width: 700px;
+    margin: auto;
+    padding: 5px 1rem;
+
+@import 'parts/_header'
+@import 'parts/_slogan'
+@import 'parts/_article_intro'
+
+@import 'parts/_cover'
+//////////////////////////////////////
+//          Article Content
+////////////////////////////////
+.article
+    color: color-text;
+    padding: 1.2rem 0.7rem 1rem;
+    p
+        margin: 1rem 0;
+    h1
+    h2
+    h3
+    h4
+    h5
+        font-weight: 400;
+
+
+@import 'parts/_archive'
+//////////////////////////////////////////////////////////
+//           Pagination
+///////////////////////////////////////////////////////////
+.pagination
+    @extends .not-select;
+    margin: 2rem 0 3rem;
+    text-align: center;
+    ul
+        list-style: none;
+        display: inline-block;
+    li
+        display: inline-block;
+        margin: 5px;
+    a
+        position: relative;
+        text-decoration: underline;
+        link()
+    span
+        float: none;
+    .active
+        text-decoration: none;
+        pointer-events: none;
+    .disabled
+        cursor: default;
+        pointer-events: none;
+        text-decoration: line-through;
+
+
+@import 'parts/_footer'
+////////////////////////////////////////////////////////////
+//              About
+//////////////////////////////////////////////////////////////
+.oops-section
+.about-wrapper
+    padding-bottom: 5rem
+    .title-no-img h1
+        padding: 2rem 0;
+    
+
+
+
+//////////////////////////////////////////////////////////////
+//              Some fix
+///////////////////////////////////////////////////////////
+#more
+#naved-link
+    display: none
+    &:focus
+        border: 0;
+        outline: 0;
+
+    
+//duoshuo
+.ds-thread a 
+    no-link-effect()
+
+@media screen and (max-width:768px)
+    #ds-thread #ds-reset .ds-post-options .ds-sync
+        display: none;
+
+
+///////////////////////
+//       enhance PWA exprience
+////////////////////////////////
+@media all and (display-mode: standalone) 
+    .nav-header
+        position: fixed
+        top: 0;
+    .main-wrapper
+        margin-top: 80px

@@ -1,13 +1,13 @@
 <div class="center-wrapper" style="position:relative;">
   <h1 class="thin">Comments Below</h1>
-<%if(theme.duoshuo){%>
+<%if(config.duoshuo){%>
 	<!-- 多说评论框 start -->
 	<div class="ds-thread" data-thread-key="<%- post.path %>" data-title="<%- post.title %>" data-url="<%- post.permalink %>"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
 		var duoshuoQuery = {
-			short_name: "vankaigithub"
+			short_name: '<%- config.duoshuo_name %>'
 		};
 		(function() {
 			var ds = document.createElement('script');

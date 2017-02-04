@@ -24,7 +24,7 @@
         <p>
         <a  href="<%- url_for(post.path)%>" class="achive-link" title="Click to Read">
         <%if(post.title){%>
-          <%- post.title %>
+          <%- post.title %><%- post.title2?'<br>'+post.title2:'' %>
         <%}else{%>
             (no title)
           <%}%>

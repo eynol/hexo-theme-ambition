@@ -1,0 +1,91 @@
+////////////////////////////
+//          Archives 
+/////////////////////////////////////
+.archive-list-wrapper
+    min-height: 70vh;
+    width: 100%
+    .title-no-img h1 
+        padding: 2rem 0
+    .archive-list
+        max-width: 700px;
+        margin: auto;
+        padding: 2rem 5px 5px 120px;
+        box-sizing: border-box;
+        ul
+            list-style: none;
+        li
+            position: relative;
+        a
+            display inline-block
+            no-link-effect()
+            transition: background-color .3s
+            text-decoration: none
+            &:hover
+                background-color: color-theme
+            // position:static;
+.tags-list
+    max-width: 699px;
+    margin: auto;
+    .tag-list
+        position: relative
+.archive-list  
+    position: relative
+
+.achive-link
+    &:hover
+        text-decoration: underline
+.archive-post-date
+    position: absolute
+    left: 0
+    width: 120px
+    margin:3px 0 0 (-@width)
+    color: color-gray
+    transition: color .3s
+.archive-list p:hover
+    .archive-post-date
+        color:color-text
+@media screen and (max-width:768px)
+    .contents
+        padding: 1rem;
+        li span
+                position: relative;
+                display: block;
+                margin-left: 0;
+                margin-bottom: 1rem;
+
+
+.archive-list
+.tag-list 
+    list-style none;
+    text-align: center
+    padding 16px 0 30px
+.archive-list-item
+.tag-list-item 
+    position relative;
+    display inline-block;
+    a
+        @extends button
+        color:color-blue
+        background-color: transparent
+        display inline-block;
+        box-sizing border-box;
+        margin 5px;
+        border-radius 3px;
+        padding 5px 40px 5px 10px ;
+        box-sizing border-box;
+        no-link-effect()
+        @extends .material-shadow
+
+.archive-list-count
+.tag-list-count
+    position absolute;
+    top: 10px;
+    right: 15px;
+    z-index -1;
+    color: color-gray
+
+.article-nav-link-wrap 
+    no-link-effect()
+    border-bottom 1px solid transparent;
+    &:hover 
+        border-bottom: 1px solid yellow;

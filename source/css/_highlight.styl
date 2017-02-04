@@ -1,4 +1,24 @@
-@import "_variables"
+// Config
+support-for-ie = false
+vendor-prefixes = webkit moz ms official
+
+// Fonts
+font-sans = "Helvetica Neue", Helvetica, Arial, sans-serif
+font-serif = Georgia, "Times New Roman", serif
+font-mono = "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace
+font-size = 14px
+line-height = 1.6em
+line-height-title = 1.1em
+
+// Header
+logo-size = 40px
+subtitle-size = 16px
+banner-height = 300px
+
+// Layout
+block-margin = 50px
+article-padding = 20px
+
 
 // https://github.com/chriskempson/tomorrow-theme
 highlight-background = #2d2d2d
@@ -14,14 +34,13 @@ highlight-aqua = #66cccc
 highlight-blue = #6699cc
 highlight-purple = #cc99cc
 article-padding = 1em
-color-border = black
 
 $code-block
   background: highlight-background
   margin: 0 article-padding * -1
   padding: 15px article-padding
   border-style: solid
-  border-color: color-border
+  border-color:  #ddd
   border-width: 1px 0 0
   overflow: auto
   color: highlight-foreground
@@ -35,7 +54,7 @@ $line-numbers
 pre, code
   font-family: font-mono
 code
-  background: color-background
+  background:  #eee
   text-shadow: 0 1px #fff
   padding: 0 0.3em
 pre
@@ -75,7 +94,7 @@ pre
 .gist
   margin: 0 article-padding * -1
   border-style: solid
-  border-color: color-border
+  border-color:  #ddd
   border-width: 1px 0
   background: highlight-background
   padding: 15px article-padding 15px 0
@@ -106,7 +125,7 @@ pre
       margin-top: 1em
       margin-left: article-padding
       a
-        color: color-link
+        color: #258fb8
         font-weight: normal
         &:hover
           text-decoration: underline

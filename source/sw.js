@@ -14,7 +14,7 @@
 // Names of the two caches used in this version of the service worker.
 // Change to v2, etc. when you update any of the local resources, which will
 // in turn trigger the install event again.
-const PRECACHE = 'precache-20170104';
+const PRECACHE = 'precache-201702041543';
 const RUNTIME = 'runtime';
 
 // A list of local resources we always want to be cached.
@@ -60,13 +60,15 @@ self.addEventListener('fetch', event => {
     if (navigator.onLine) {
       //Online strategy
       event.respondWith(caches.open(PRECACHE)
-        .then(cache => cache.match(event.request))
+        .then(cache => cache.match(event.request.clone()))
         .then(cachedResponse => {
           if (cachedResponse) {
             //Request precached resources, return the response directly.
+            console.log("precache")
             return cachedResponse
           } else {
             //onLine resources first , always get a new one.
+             console.log("getNew")
             return caches.open(RUNTIME).then(cache => {
               return fetch(event.request).then(response => {
                 // Put a copy of the response in the runtime cache.

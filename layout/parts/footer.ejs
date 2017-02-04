@@ -21,7 +21,7 @@
   <div id="footer-info" class="footer-info">
     &copy;
     <%= date(new Date(), 'YYYY') %>
-      <%= config.author || config.title %> <span class="show-on-mobile"><br></span><%- mail_to(theme.email)%><br>
+      <%= config.author || config.title %> <span class="show-on-mobile"><br></span><%- mail_to(config.email)%><br>
       <%= __('powered_by') %> <a href="http://hexo.io/" target="_blank">Hexo</a> Themed with <a href="https://github.com/vankai/hexo-theme-ambition" target="_blank">Ambition</a>
   </div>
 </footer>

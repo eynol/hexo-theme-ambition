@@ -34,13 +34,13 @@ if (is_archive()){
 </title>
 
 
-<%if(theme.prefetch && theme.prefetch.length>0){%>
-  <%for(var xp = 0,lenxp = theme.prefetch.length;xp <lenxp;xp++){%>
-    <link rel="dns-prefetch" href="<%- theme.dnsprefetch[xp] %>">
+<%if(config.prefetch && config.prefetch.length>0){%>
+  <%for(var xp = 0,lenxp = config.prefetch.length;xp <lenxp;xp++){%>
+    <link rel="dns-prefetch" href="<%- config.dnsprefetch[xp] %>">
   <%}} %>
-  <%if(theme.preRender && theme.preRender.length>0){%>
-    <%for(var pr = 0,lenxp = theme.preRender.length;pr <lenxp;pr++){%>
-  <link rel="prerender" href="<%- theme.prerender[pr] %>">
+  <%if(config.preRender && config.preRender.length>0){%>
+    <%for(var pr = 0,lenxp = config.preRender.length;pr <lenxp;pr++){%>
+  <link rel="prerender" href="<%- config.prerender[pr] %>">
 <%}} %>
 
 <%if(theme.favicon){%><link rel="shortcut icon" href="<%- theme.favicon %>"><% }%>

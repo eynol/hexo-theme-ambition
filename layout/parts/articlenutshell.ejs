@@ -15,14 +15,18 @@
     <%}%>
 
     <% if( post.excerpt){%>
-    <div class="brief">
-        <%- post.excerpt %>
-        <button >
-                <a class="readmore" href="<%- url_for(post.path) %>" title="Click to Read More">
-                    <%- theme.excerpt_link %>
-                </a>
+        <div class="brief">
+            <%- post.excerpt %>
+            <button >
+                    <a class="readmore" href="<%- url_for(post.path) %>" title="Click to Read More">
+                        <%- config.excerpt_link %>
+                    </a>
             </button>
-    </div>
+        </div>
+    <%}else if(post.short){%>
+        <div class="brief">
+        <%- post.content %>
+        </div>
     <%}%>
     <%- partial('parts/date_tags', {post: post}) %>
 </section>

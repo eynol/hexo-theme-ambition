@@ -1,0 +1,148 @@
+/////////////////////////////////////////////////
+//          Page Header & nav
+//////////////////////////////////////////////////
+.nav-header 
+    position: relative
+    z-index 5
+    width 100%
+    height 80px
+    clearfix()
+    background-color: white
+    @extends .not-select;
+
+//logo 
+.logo-header
+    display inline-block
+    padding 2rem 0 0 80px
+    zoom 1
+    height 80px
+    box-sizing border-box
+    *display inline
+    a 
+        position relative
+        font-size 1.3rem
+        font-weight 900
+        letter-spacing 4px
+        text-transform uppercase
+        color black
+@media screen and (max-width:700px)
+    .logo-header
+        padding-left: 36px
+
+
+
+
+//nav bar
+.nav-ul 
+    float right
+    display inline-block
+    box-sizing border-box
+    height 80px
+    padding 2rem 2rem 0 0
+    ul
+        margin 0
+        list-style none
+    li
+        display inline-block
+        a
+            position relative
+            display block
+            margin 5px 14px
+            padding-top 5px
+            color color-text
+
+.nav-mobile-avator 
+    display inline-block
+    position absolute
+    top 2rem
+    right 3rem
+    text-decoration none
+    span 
+        position relative
+        display inline-block
+        width 27px
+        height 5px
+        transition background-color 0.5s
+        transform-origin center center
+        background-color black
+        &:before
+            position absolute
+            top -7px
+            left 0
+            display inline-block
+            width 27px
+            height 5px
+            content ""
+            transition 0.5s
+            transform-origin center center
+            background-color black
+        &:after
+            position absolute
+            top 7px
+            left 0
+            display inline-block
+            width 27px
+            height 5px
+            content ""
+            transition 0.5s
+            transform-origin center center
+            background-color black
+        &.active
+            background-color transparent
+            &:before
+                top 0
+                transform rotateZ(45deg)
+            &:after
+                top 0
+                transform rotateZ(-45deg)
+
+
+.nav-mobile-avator 
+    display none
+
+
+@media screen and (max-width:700px)
+    .nav-mobile-avator
+        display: inline-block
+    .nav-ul
+        position absolute
+        top 79px
+        right 0
+        left 0
+        display block
+        height 0
+        padding 0
+        margin 0
+        overflow hidden
+        list-style none
+        text-align center
+        transition: height .5s
+        background-color white
+        box-shadow 0 4px 6px rgba(0, 0, 0, .3)
+        transform: translate3d(0,0,0)
+        ul
+            position: absolute;
+            width: 100%;    
+        li
+            display block
+            max-width 200px
+            margin auto
+            text-align left
+            a
+                display: inline-block;
+                padding: 0.5rem 10px;
+        &.active
+            height: mobile-nav-height;
+            animation: menu-out .5s;
+
+@keyframes menu-out {
+    0% {
+        height: 0;
+    }
+    5%{
+        height:0
+    }
+    100% {
+        height: mobile-nav-height;
+    }
+}

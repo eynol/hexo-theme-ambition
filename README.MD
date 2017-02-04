@@ -1,5 +1,5 @@
-# Screenshot and live demo
-
+# Live demo
+[My blog](https://vankai.github.io)
 
 # Intro
 
@@ -69,7 +69,7 @@ My `/Hexo_project_root/_config.yml` file is like this.Append the key&value you d
 title: Vankai
 subtitle:
 description:
-author: Vankai
+author: Tao Kai
 language: en
 timezone:
 
@@ -79,7 +79,7 @@ url: /
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
-  lang: 
+  lang: en
 
 # Directory
 source_dir: source
@@ -101,7 +101,11 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
-
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace:
 
 # Category & Tag
 default_category: uncategorized
@@ -117,11 +121,10 @@ time_format: HH:mm:ss
 
 
 # Mypages
-# left is generated page, right is your personal modified ejs file
 mypage:
   about.html: about
-  tags/index.html: alltags
-
+  tags/index.html: all_tags
+  404.html: oops
 # Pagination
 ## Set per_page to 0 to disable pagination
 
@@ -129,14 +132,68 @@ index_generator:
   per_page: 10
 
 archive_generator:
-  per_page: 40  //set to 0 to disable 
-  yearly: true  // archive by year 
-  monthly: true // archive by month 
+  per_page: 40  //为0时表示不分页全展示
+  yearly: true  //按年生成归档
+  monthly: true //按月生成归档
 
 tag_generator:
   per_page: 40
 
 pagination_dir: page
+
+
+# Impression words
+# this displays on homepage
+# Notice:the impression words is display with 'pre' tag style ,you may need to
+# add some whitespaces to beautify what is your words look like.
+# If you don't like this , you may modify 'firstimpression.ejs' file and 
+# the firstimpression part of the 'style-common.styl' file.
+impression: 「倘只看书   <br>   便变成书橱」 
+
+
+# Your Email, 
+# this display on the footer part
+email: mr.taokai@foxmail.com
+
+
+# prefetch some sites' dns
+# add your CDN provider's domain name to this list
+dnsprefetch:
+  - https://github.com/vankai/
+  - https://vankai.github.io/
+  - https://tomato3.coding.me/
+  - https://www.heitaov.cn/
+  - http://blog.54yh.cn/
+
+# pre-render 
+# this 
+prerender:
+  - /
+  - /archives/
+  - /tags/
+  - /about/
+
+
+# widget behavior
+# control the archives's page
+archive_type: 'yearly'
+show_count: false
+
+
+# Content translation
+excerpt_link: Read More
+next_post: 下一篇
+prev_post: 上一篇
+
+
+# Duoshuo
+duoshuo: true
+duoshuo_name: vankaigithub
+
+
+# Google Analytics
+google_analytics: false
+google_analytics_id: UA-89535578-1
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
