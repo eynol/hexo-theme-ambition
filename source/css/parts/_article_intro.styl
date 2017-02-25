@@ -53,7 +53,21 @@
  .article-index 
     .title a
         &:hover
-            background-color:color-theme
+            &:after
+                content "_"
+                animation: blinkDash .8s infinite
+
+@keyframes blinkDash{
+    0%{
+        opacity: 0
+    }
+    50%{
+        opacity: 1
+    }
+    100%{
+        opacity: 0
+    }
+}
     section 
         padding: 5px 0;
         margin-bottom: 4rem;
