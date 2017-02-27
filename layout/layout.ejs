@@ -2,13 +2,11 @@
 <html>
 <%- partial('parts/head') %>
 <body>
-    <div class="main-wrapper">
-        <%- partial('parts/header', null, {cache: config.relative_link}) %>
-
-         <%- body %>
-
-        <%- partial('parts/footer', null, {cache: !config.relative_link}) %>
+    <div class="main-wrapper material-shadow">
+     <%- partial('parts/header', null, {cache: config.relative_link}) %>
+    <%- body %>
     </div>
+    <%- partial('parts/footer', null, {cache: !config.relative_link}) %>
     <!-- 曾经有个小偷潜入某神秘机构，偷出机密代码的最后一页，打开一看。
 
                                     });

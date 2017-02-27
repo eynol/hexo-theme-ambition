@@ -3,13 +3,11 @@
     <meta name="theme-color" content="black"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <link rel="manifest" href="/manifest.json">
-<meta name="application-name" content="Vankai">
-<meta name="mobile-web-app-capable" content="yes">
-<link rel="icon" sizes="192x192" href="/vankai_icon_4x.png"> 
-<link rel="icon" sizes="128x128" href="/vankai_icon_3x.png">
-
+    <meta name="application-name" content="Vankai">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="/vankai_icon_4x.png"> 
+    <link rel="icon" sizes="128x128" href="/vankai_icon_3x.png">
 <% var title = page.title;
 
 if (is_archive()){
@@ -24,13 +22,20 @@ if (is_archive()){
   title = __('category') + ': ' + page.category;
 } else if (is_tag()){
   title = __('tag') + ': ' + page.tag;
-}%>
+}else if(is_current('about.html')){
+   title = "About";
+}else if(is_current('tags/index.html')){
+   title = "Tags";
+}
+%>
 
 <title>
-  <% if (title){ %>
-    <%= title %> |
-  <% } %>
-  <%= config.title %>
+<% if(is_home()){ %>
+  <%= config.title%>,<%= config.subtitle%>
+<%} else { %>
+   <%= title?title+"|"+config.title:config.title %> 
+<% } %>
+  
 </title>
 
 

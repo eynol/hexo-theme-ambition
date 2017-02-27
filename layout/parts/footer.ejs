@@ -1,5 +1,6 @@
-<footer class="material-shadow-inset-top">
-  <div class="footer-nav">
+<footer>
+<div class="footer-content">
+    <div class="footer-nav">
     <ul>
       <% for (var i in theme.menu){ %>
         <li>
@@ -11,9 +12,9 @@
     </ul>
   </div>
   <div class="friends-link">
-    <h1>Friends Of Mine</h1>
+    <h1>FRIENDS</h1>
     <p><a href="http://blog.54yh.cn/" target="_blank" rel="noopener" title="Click to open a new page of this link">逸晖</a></p>
-    <h1>Other Links</h1>
+    <h1>SOCIAL</h1>
     <p>
       <a href="https://vankai.github.io" title="This Blog Is Both Deployed At GitHub(for global) And Coding.net(for mainland China) ">GitHub</a><a
         href="https://tomato3.coding.me" title="This Blog Is Both Deployed At GitHub(for global) And Coding.net(for mainland China) ">Coding.net</a></p>
@@ -24,4 +25,5 @@
       <%= config.author || config.title %> <span class="show-on-mobile"><br></span><%- mail_to(config.email)%><br>
       <%= __('powered_by') %> <a href="http://hexo.io/" target="_blank">Hexo</a> Themed with <a href="https://github.com/vankai/hexo-theme-ambition" target="_blank">Ambition</a>
   </div>
+</div>
 </footer>
