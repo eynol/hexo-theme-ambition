@@ -14,6 +14,26 @@ body>footer
     @extends .not-select;
     h1,h2,h3,h4,h5
         color: black
+@font-face {
+    font-family: DawningofaNewDay
+    src: url(/fonts/DawningofaNewDay.ttf) 
+}
+.calligraph
+    h1
+        text-align: center
+        font: 300 48px DawningofaNewDay 
+    .display-content
+        display: block
+    .hide-content
+        display: none
+
+@media screen and (max-width:768px)
+    .calligraph 
+        .display-content
+            display: none
+        .hide-content
+            display: block
+
 .footer-content
     position: absolute;
     bottom: 3rem;
@@ -52,6 +72,8 @@ footer-link()
     footer-link()
     p
         text-align: center
+    h1
+        font-weight: normal
 .footer-info    
     text-align: center
     color: color-theme

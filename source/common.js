@@ -2,6 +2,34 @@
 /* do things simple
 */
 
+(function(){
+    var list = document.getElementsByClassName('typewriter'),length = list.length;
+    if( length!==0){
+            var target = list[0];
+            var h1 = target.firstElementChild;
+            var texts = h1.textContent.split('');
+            var index = 0;
+            var curent="";
+            length = texts.length-1;
+            var speed = 100;//ms
+            var timer = setInterval(function(){
+                if(index<=length){
+                   setTimeout(function(){
+                    curent += texts[index++];
+                    h1.textContent=curent;
+                   },4);
+                }else{
+                    clearInterval(timer);
+                    setTimeout(function(){
+                        curent+=" ."
+                         h1.textContent=curent;
+                        target.classList.remove('typewriter');
+                    },3000)
+                };
+            },speed);
+            h1.textContent = "";
+    }
+})();
 
 (function () {
     //make top menu active

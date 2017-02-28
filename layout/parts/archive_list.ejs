@@ -1,7 +1,7 @@
 <section class="archive-list-wrapper">
   <div class="title-no-img">
   <% if(where === "archive"){%>
-        <div class="title">
+        <div class="title typewriter">
       <%if(page.month){%>
           <h1><%- page.year %>-<%- page.month %></h1>
       <%}else if(page.year){%>
@@ -12,7 +12,7 @@
 
         </div>
   <%}else{%>
-    <div class="title">
+    <div class="title typewriter">
           <h1><%- page.tag %></h1>
         </div>
   <%}%>
