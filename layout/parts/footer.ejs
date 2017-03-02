@@ -15,13 +15,20 @@
         <% } %>
     </ul>
   </div>
+  <p class="social-links">
+      <%if(config.social.github){%><a href="<%= config.social.github %>" target="_blank" title="click to visit my github home page"><i class="icon github"></i></a><%}%>
+      <%if(config.social.coding){%><a href="<%= config.social.coding %>" target="_blank" title="click to visit my coding home page"><i class="icon coding-net"></i></a><%}%>
+  </p>
   <div class="friends-link">
     <h1>FRIENDS</h1>
-    <p><a href="http://blog.54yh.cn/" target="_blank" rel="noopener" title="Click to open a new page of this link">逸晖</a></p>
-    <h1>SOCIAL</h1>
     <p>
-      <a href="https://vankai.github.io" title="This Blog Is Both Deployed At GitHub(for global) And Coding.net(for mainland China) ">GitHub</a><a
-        href="https://tomato3.coding.me" title="This Blog Is Both Deployed At GitHub(for global) And Coding.net(for mainland China) ">Coding.net</a></p>
+     <% for (var i in config.friends){ %>
+      
+          <a class="footer-nav-link" href="<%- config.friends[i].link %>" target="_blank" rel="noopener" title="Click to open a new page of this link">
+            <%=  config.friends[i].name %>
+          </a>  
+        <% } %>
+    </p>
   </div>
   <div id="footer-info" class="footer-info">
     &copy;

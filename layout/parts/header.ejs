@@ -10,6 +10,7 @@
         <% for (var i in theme.menu){ %>
         <li><a class="main-nav-link" title="Jump to <%= i %>" href="<%- url_for(theme.menu[i]) %>"><%= i %></a></li>
         <% } %>
+        <!-- <li><a class="main-nav-link close-btn"  href="javascript:;" onclick="open(location, '_self').close();">Exit</a></li>  this problem is not solved-->
         </ul>
     </div>
 </nav>

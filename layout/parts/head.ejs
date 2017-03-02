@@ -33,7 +33,7 @@ if (is_archive()){
 <% if(is_home()){ %>
   <%= config.title%>,<%= config.subtitle%>
 <%} else { %>
-   <%= title?title+"|"+config.title:config.title %> 
+   <%= title?title+" · "+config.title:config.title %> 
 <% } %>
   
 </title>

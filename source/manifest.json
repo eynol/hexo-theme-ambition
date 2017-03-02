@@ -1,6 +1,6 @@
 {
   "short_name": "Vankai",
-  "name": "Vankai's Blog",
+  "name": "Vankai·Blog",
   "serviceworker": {
     "src": "sw.js",
     "scope": "/",
@@ -10,7 +10,7 @@
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#000",
-  "background_color": "#FFF500",
+  "background_color": "#fff",
   "icons": [{
       "src": "vankai_icon_1x.png",
       "sizes": "48x48",

@@ -13,7 +13,7 @@ body>footer
     clearfix()
     @extends .not-select;
     h1,h2,h3,h4,h5
-        color: black
+        color: color-black
 @font-face {
     font-family: DawningofaNewDay
     src: url(/fonts/DawningofaNewDay.ttf) 
@@ -42,7 +42,7 @@ footer-link()
     a
         no-link-effect()
         margin:0 .67em
-        color:black
+        color:color-black
         padding: 0
         &:hover
             text-decoration: underline
@@ -52,32 +52,34 @@ footer-link()
 .footer-nav
     text-align: center
     box-sizing: border-box
-    margin-bottom: 3rem
+    margin-bottom: 1rem
     li
         list-style: none
         display: inline-block
         margin-bottom: 10px
         a
-            background: black
+            background: color-black
             color:color-theme
             &:hover
                 text-decoration: underline
                 &:before
                     display: none
-                
+.social-links    
+    footer-link()
+    text-align: center
 .friends-link
     box-sizing: border-box
     text-align: center
-    margin-bottom: 3rem
+    margin-bottom: 2rem
     footer-link()
     p
         text-align: center
     h1
         font-weight: normal
-.footer-info    
+.footer-info
     text-align: center
     color: color-theme
-    background-color: black
+    background-color: color-black
     padding: 16px
     a
         no-link-effect()

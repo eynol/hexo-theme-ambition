@@ -81,7 +81,7 @@
     var style_tag = document.createElement("style"),
         link_tag = document.createElement("a");
     style_tag.innerText = ".HideS-Au2o-top { position: fixed;z-index:20; display: inline-block; right: -50px; bottom: 40px; box-sizing: border-box; width: 40px; height: 40px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .2), 0 2px 10px 0 rgba(0, 0, 0, .12); transition: .3s; animation-duration: .9s; animation-fill-mode: forwards; animation-timing-function: cubic-bezier(0.62, 0, 0.2, 1.32); }" +
-        ".HideS-Au2o-top:before, .HideS-Au2o-top:after,.HideS-Au2o-top:hover:before ,.HideS-Au2o-top:hover:after { content: ''; display: inline-block; position: absolute; width: 20px; height: 4px; top: 10px; left: 10px; transform-origin: center center; background-color: #989898; transform: rotateZ(45deg) translateX(8px); }" +
+        ".HideS-Au2o-top:before, .HideS-Au2o-top:after,.HideS-Au2o-top:hover:before ,.HideS-Au2o-top:hover:after { content: ''; display: inline-block; position: absolute; width: 20px; height: 4px; top: 10px; left: 10px; transform-origin: center center; background-color: #989898; transform: rotateZ(45deg) translateX(8px);animation-name:no; }" +
         ".HideS-Au2o-top:after,.HideS-Au2o-top:hover:after { right: 10px; transform: rotateZ(-45deg) translateX(-8px); }" +
         ".HideS-Au2o-top:hover{background-color:#fff;}" +
         ".HideS-Au2o-top:active{box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.18), 0 3px 8px -2px rgba(0, 0, 0, 0.15);}" +
@@ -195,7 +195,7 @@
 })();
 
 
-if (location.hash !== "#debug") {
+if (location.hostname !== "localhost") {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js');
     }

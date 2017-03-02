@@ -1,0 +1,17 @@
+.icon
+  display: inline-block;
+  position: relative
+  width: 2em;
+  height: 2em;
+  &:before
+    content: "" 
+    height: 100%
+    width: 100% 
+    display: block
+    background-position: center
+    background-repeat:  no-repeat 
+    background-size: cover
+.icon.github:before
+  background-image: url(/img/icons/github.svg)
+.icon.coding-net:before
+  background-image: url(/img/icons/coding.svg)

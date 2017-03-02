@@ -14,19 +14,18 @@
         <a href="<%- post.link %>" style="font-size:12px; text-decoration:underline;margin-left:2em;" class="thin" target="_blank"  rel="noopener">link</a>
     <%}%>
 
+<div class="brief">
     <% if( post.excerpt){%>
-        <div class="brief">
-            <%- post.excerpt %>
+        <%- post.excerpt %>
             <button >
                     <a class="readmore" href="<%- url_for(post.path) %>" title="Click to Read More">
                         <%- config.excerpt_link %>
                     </a>
             </button>
-        </div>
-    <%}else if(post.short){%>
-        <div class="brief">
+    <%}else{%>
         <%- post.content %>
-        </div>
     <%}%>
+</div>
+        
     <%- partial('parts/date_tags', {post: post}) %>
 </section>

@@ -26,7 +26,7 @@ color-gray = #c8c8c8
 color-purple = #c10087
 color-blue = rgb(0,162,178)
 color-lighten-link = #ff00b2
-
+black = #2d2828
 
 
 
@@ -101,7 +101,7 @@ clearfix()
 
 .btn
     background-color: white
-    color: black
+    color: color-black
     border-radius: 3px
     padding: 5px 10px
     transition: 0.3s
@@ -113,6 +113,7 @@ clearfix()
 //          Link effect
 ///////////////////////////////////////////////////////
 link-hover-effect()
+    transition: color,background-color .3s
     &:hover
         background-color: color-theme;
         &:before
@@ -123,7 +124,8 @@ link-hover-effect()
             bottom 0
             left -5px
             width 5px
-            background-color black
+            background-color color-black
+            animation: blinkDash 1s infinite
 
 no-link-effect() 
     &:hover 
@@ -330,9 +332,13 @@ h1,h2,h3,h4,h5{
 ///////////////////////
 //       enhance PWA exprience
 ////////////////////////////////
+/*
 @media all and (display-mode: standalone) 
     .nav-header
         position: fixed
         top: 0;
     .main-wrapper
         margin-top: 80px
+*/
+
+@import "parts/_icons"
