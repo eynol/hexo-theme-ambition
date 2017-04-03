@@ -108,7 +108,12 @@ clearfix()
     @extends .material-shadow
     @extends .material-shadow-hover
 
-    
+.action-back  
+    display: inline-block
+    padding: 5px 10px
+    background-color: color-theme-dark
+    color color-black
+
 //////////////////////////////////////////////////////
 //          Link effect
 ///////////////////////////////////////////////////////
@@ -214,11 +219,22 @@ button
     -webkit-appearance: none;
     &:hover
         background-color: white
-        //box-shadow: rgba(0, 0, 0, .180392) 0 5px 11px 0, rgba(0, 0, 0, .14902) 0 4px 15px 0;
+        box-shadow: rgba(0, 0, 0, .180392) 0 5px 11px 0, rgba(0, 0, 0, .14902) 0 4px 15px 0;
     transition:  box-shadow .1s
     @extends .material-shadow-hover;
     &:active
-       box-shadow 0 3px 5px -2px rgba(0, 0, 0, 0.18), 0 3px 8px -2px rgba(0, 0, 0, 0.15)
+        box-shadow 0 3px 5px -2px rgba(0, 0, 0, 0.18), 0 3px 8px -2px rgba(0, 0, 0, 0.15)
+    &.flat
+        border-radius: 0;
+        box-shadow: none
+        border:solid 1.3px color-black
+        a
+            color: color-black
+    &.flat:hover
+        background-color: color-black
+        box-shadow: none
+    &&.flat:active
+        box-shadow: none
     a
         no-link-effect()
         display: inline-block
@@ -265,6 +281,9 @@ h1,h2,h3,h4,h5{
     h4
     h5
         font-weight: 400;
+
+.summary
+    margin-bottom: 5rem;
 
 
 @import 'parts/_archive'
@@ -320,9 +339,6 @@ h1,h2,h3,h4,h5{
         outline: 0;
 
     
-//duoshuo
-.ds-thread a 
-    no-link-effect()
 
 @media screen and (max-width:768px)
     #ds-thread #ds-reset .ds-post-options .ds-sync

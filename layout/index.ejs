@@ -1,6 +1,5 @@
 <%- partial('parts/firstimpression')%>
-<a href="javascript:;" id="naved-link"></a>
-<section class="center-wrapper article-index">
+<section id="navedIndex" class="center-wrapper article-index">
   <% page.posts.each(function(post){ %>    
     <%- partial('parts/articlenutshell', {post: post}) %>
   <% }) %>
@@ -9,7 +8,7 @@
         <%- paginator({
           prev_text: "&laquo;"+ __('prev'),
           next_text: __('next') +" &raquo;",
-          format: 'page/%d/index.html#naved-link'
+          format: 'page/%d/index.html#navedIndex'
         }) %>
     </nav>
   <% } %>

@@ -5,12 +5,10 @@
     <%- page.content %>
 </article>
 
-<section class="summary-and-me center-wrapper">
-    <p class="text-center"><button>
-    <a href="javascript:var a = history;a.length>=2?a.back(-1):location.href='/';" title="Return to List or Jump to Homepage">BACK</a></button></p>
+<section class="summary center-wrapper">
+    <p class="text-center">
+        <a class="action-back" href="javascript:var a = history;a.length>=2?a.back(-1):location.href='/';" title="Return to List or Jump to Homepage">BACK</a>
+    </p>
 </section>
 
-
-
-<%- partial('parts/duoshuo', {post: page}) %>
 
