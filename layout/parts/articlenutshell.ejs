@@ -3,7 +3,7 @@
     <h1 class='title' title="Click to Read">
         <a  href="<%- url_for(post.path) %>">
           <%- post.title?post.title:"(No Title)" %>
-          <%if(post.title2){%>
+          <%if(post.title2 &&false){%>
           <br>
           <span class="title2"><%- post.title2 %></span>
           <%}%>
