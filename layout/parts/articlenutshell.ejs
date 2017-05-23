@@ -1,31 +1,24 @@
-  <section class="article-intro">
- 
-    <h1 class='title' title="Click to Read">
+<section class="article-intro">
+    <h1 class='article-title' title="Click to Read">
         <a  href="<%- url_for(post.path) %>">
           <%- post.title?post.title:"(No Title)" %>
-          <%if(post.title2 &&false){%>
-          <br>
-          <span class="title2"><%- post.title2 %></span>
-          <%}%>
         </a>
     </h1>
-
     <%if(post.link){%>
         <a href="<%- post.link %>" style="font-size:12px; text-decoration:underline;margin-left:2em;" class="thin" target="_blank"  rel="noopener">link</a>
     <%}%>
-<%- partial('parts/date_tags', {post: post}) %>
-<div class="brief">
+    <%- partial('parts/date_tags', {post: post}) %>
+    <div class="brief">
     <% if( post.excerpt){%>
         <%- post.excerpt %>
-    
+        <p class="text-center">
             <a class="readmore" href="<%- url_for(post.path) %>" title="Click to Read More">
-                <%- config.excerpt_link %>
+                <span class="readmore__text"><%- config.excerpt_link?config.excerpt_link:'...' %></span>
+                <span class="readmore__emotion">=￣ω￣=</span>
             </a>
-
+        </p>
     <%}else{%>
         <%- post.content %>
     <%}%>
-</div>
-        
-    
+    </div>  
 </section>

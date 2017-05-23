@@ -1,44 +1,28 @@
 
 <%if(post.cover){%>
-        <section class="article-intro title-with-img">
-        <img class="cover-img <%- post.fit?'cover-fit':''%>" src="<%- post.cover%>" alt="bg">
-        <div class="title-container">
-            <h1 class='title' title="Click to Read">
-           <span class="title1">
+<section class="article-intro title-with-img">
+    <img class="cover-img <%- post.fit?'cover-fit':''%>" src="<%- post.cover%>" alt="bg">
+    <div class="title-container">
+        <h1 class='article-title' title="Click to Read">
+            <span class="title1">
                 <%- post.title %>
             </span>
-            <%if(post.title2){%>
-            <br>
-            <span class="title2"><%- post.title2 %></span>
-            <%}%>
-        
         </h1>
 
         <%if(post.link){%>
-            <a href="<%- post.link %>" style="font-size:12px; text-decoration:underline;margin-left:2em;" class="thin" target="_blank" rel="noopener">link</a>
+        <a href="<%- post.link %>" style="font-size:12px; text-decoration:underline;margin-left:2em;" class="thin" target="_blank" rel="noopener">link</a>
         <%}%>
-
-       <%- partial('parts/date_tags', {post: post}) %>
-        </div>
-        </section>
-
-<%}else{%>
-            
-        <section class="article-intro title-no-img">
-            <h1 class='title' title="Click to Read">
-            
-                <%- post.title?post.title:"(No title)" %>
-                <%if(post.title2){%>
-                    <br>
-                    <span class="title2"><%- post.title2 %></span>
-                <%}%>
-            
-        </h1>
-
-        <%if(post.link){%>
-            <a href="<%- post.link %>" style="font-size:12px; text-decoration:underline;margin-left:2em;" class="thin" target="_blank"  rel="noopener">link</a>
-        <%}%>
-
         <%- partial('parts/date_tags', {post: post}) %>
-        </section>
+    </div>
+</section>
+<%}else{%>       
+<section class="article-intro title-no-img">
+    <h1 class='article-title' title="Click to Read">
+        <%- post.title?post.title:"(No title)" %>
+    </h1>
+    <%if(post.link){%>
+        <a href="<%- post.link %>" style="font-size:12px; text-decoration:underline;margin-left:2em;" class="thin" target="_blank"  rel="noopener">link</a>
+    <%}%>
+    <%- partial('parts/date_tags', {post: post}) %>
+</section>
 <%}%>

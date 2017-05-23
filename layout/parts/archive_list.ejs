@@ -7,7 +7,7 @@
       <%}else if(page.year){%>
           <h1><%- page.year%></h1>
       <%}else{%>
-          <h1>List of Posts</h1>
+          <h1>archives</h1>
       <%}%>
 
         </div>
@@ -24,7 +24,7 @@
         <p>
         <a  href="<%- url_for(post.path)%>" class="achive-link" title="Click to Read">
         <%if(post.title){%>
-          <%- post.title %><%- post.title2?'<br>'+post.title2:'' %>
+          <%- post.title %>
         <%}else{%>
             (no title)
           <%}%>
