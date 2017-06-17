@@ -1,5 +1,13 @@
 <%- partial('parts/archive_list', {where: "archive"}) %>
 <section class="center-wrapper">
-  <h1 class="text-center title" ><%- config.archive_type==="monthly"?"Months":"Years"%> Index</h1>
+  <h1 class="text-center title" ><%- config.archive_type==="yearly"?"Years":"Months"%> Index</h1>
   <%- list_archives({show_count: true, type: config.archive_type}) %>
+</section>
+<section class="center-wrapper">
+  <h1 class="text-center title" >Categories</h1>
+  <%- list_categories({show_count: true,depth:1}) %>
+</section>
+<section class="center-wrapper">
+  <h1 class="text-center title" >Tags</h1>
+  <%- list_tags({show_count: true}) %>
 </section>

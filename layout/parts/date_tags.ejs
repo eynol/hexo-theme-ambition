@@ -9,4 +9,13 @@
             separator:' '
           }) %>
     <% } %>
+    <% if (post.categories && post.categories.length){ %>
+      <span class="show-on-mobile">&nbsp;</span><span class="hide-on-mobile"> | </span>
+      <%- list_categories(post.categories, {
+            style: 'a',
+            show_count: false,
+            separator:'>'
+          }) %>
+    <% } %>
+    
 </p>

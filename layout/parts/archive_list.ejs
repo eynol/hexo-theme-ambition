@@ -11,9 +11,9 @@
       <%}%>
 
         </div>
-  <%}else{%>
+  <%}else {%>
     <div class="title typewriter">
-          <h1><%- page.tag %></h1>
+          <h1><%- page.tag ?page.tag:page.category %></h1>
         </div>
   <%}%>
   </div>

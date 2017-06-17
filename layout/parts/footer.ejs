@@ -4,32 +4,39 @@
    <h1 class="display-content">Wish You Have A Nice Day!</h1>
    <h1 class="hide-content">Best Wishes!</h1>
   </div>
-    <div class="footer-nav">
+  <div class="footer-nav">
     <ul>
-      <% for (var i in theme.menu){ %>
+      <%  
+      var menu ;
+      if(config.menu){
+          menu=config.menu
+        }else{
+          menu=config.menu
+      };
+      for (var i in menu){ %>
         <li>
-          <a class="footer-nav-link" href="<%- url_for(theme.menu[i]) %>" title="Jump to <%= i %>">
+          <a class="footer-nav-link" href="<%- url_for(menu[i]) %>" title="Jump to <%= i %>">
             <%= i %>
           </a>
         </li>
         <% } %>
     </ul>
   </div>
+  <%if(config.social){%>
   <p class="social-links">
       <%if(config.social.github){%><a href="<%= config.social.github %>" target="_blank" title="click to visit my github home page"><i class="icon github"></i></a><%}%>
       <%if(config.social.coding){%><a href="<%= config.social.coding %>" target="_blank" title="click to visit my coding home page"><i class="icon coding-net"></i></a><%}%>
   </p>
+  <%};if(config.friends){%>
   <div class="friends-link">
     <h1>FRIENDS</h1>
-    <p>
-     <% for (var i in config.friends){ %>
-      
-          <a class="footer-nav-link" href="<%- config.friends[i].link %>" target="_blank" rel="noopener" title="Click to open a new page of this link">
-            <%=  config.friends[i].name %>
-          </a>  
-        <% } %>
-    </p>
+    <p><% for (var i in config.friends){ %>
+      <a class="footer-nav-link" href="<%- config.friends[i].link %>" target="_blank" rel="noopener" title="Click to open a new page of this link">
+        <%=  config.friends[i].name %>
+      </a>  
+    <%}%></p>
   </div>
+  <%}%>
   <div id="footer-info" class="footer-info">
     &copy;
     <%= date(new Date(), 'YYYY') %>

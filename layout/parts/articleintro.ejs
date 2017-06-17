@@ -1,28 +1,27 @@
-
 <%if(post.cover){%>
 <section class="article-intro title-with-img">
     <img class="cover-img <%- post.fit?'cover-fit':''%>" src="<%- post.cover%>" alt="bg">
     <div class="title-container">
-        <h1 class='article-title' title="Click to Read">
+        <h1 class='article-title'>
             <span class="title1">
                 <%- post.title %>
             </span>
+            <%if(post.link){%>
+                <a href="<%- post.link %>" class="thin link" title="Follow the external link" target="_blank" rel="noopener">&nbsp;</a>
+            <%}%>
         </h1>
 
-        <%if(post.link){%>
-        <a href="<%- post.link %>" style="font-size:12px; text-decoration:underline;margin-left:2em;" class="thin" target="_blank" rel="noopener">link</a>
-        <%}%>
-        <%- partial('parts/date_tags', {post: post}) %>
+                <%- partial('parts/date_tags', {post: post}) %>
     </div>
 </section>
 <%}else{%>       
 <section class="article-intro title-no-img">
-    <h1 class='article-title' title="Click to Read">
+    <h1 class='article-title'>
         <%- post.title?post.title:"(No title)" %>
+        <%if(post.link){%>
+            <a href="<%- post.link %>" class="thin link" title="Follow the external link" target="_blank"  rel="noopener">&nbsp;</a>
+        <%}%>
     </h1>
-    <%if(post.link){%>
-        <a href="<%- post.link %>" style="font-size:12px; text-decoration:underline;margin-left:2em;" class="thin" target="_blank"  rel="noopener">link</a>
-    <%}%>
-    <%- partial('parts/date_tags', {post: post}) %>
+        <%- partial('parts/date_tags', {post: post}) %>
 </section>
 <%}%>

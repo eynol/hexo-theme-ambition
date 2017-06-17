@@ -31,7 +31,7 @@ if (is_archive()){
 
 <title>
 <% if(is_home()){ %>
-  <%= config.title%>,<%= config.subtitle%>
+  <%= config.title%><%= config.subtitle?'|'+config.subtitle:''%>
 <%} else { %>
    <%= title?title+" · "+config.title:config.title %> 
 <% } %>
@@ -40,15 +40,17 @@ if (is_archive()){
 
 
 <%if(config.prefetch && config.prefetch.length>0){%>
-  <%for(var xp = 0,lenxp = config.prefetch.length;xp <lenxp;xp++){%>
-    <link rel="dns-prefetch" href="<%- config.dnsprefetch[xp] %>">
-  <%}} %>
-  <%if(config.preRender && config.preRender.length>0){%>
-    <%for(var pr = 0,lenxp = config.preRender.length;pr <lenxp;pr++){%>
-  <link rel="prerender" href="<%- config.prerender[pr] %>">
+<%for(var xp = 0,lenxp = config.prefetch.length;xp <lenxp;xp++){%>
+<link rel="dns-prefetch" href="<%- config.dnsprefetch[xp] %>">
+<%}} %>
+<%if(config.preRender && config.preRender.length>0){%>
+  <%for(var pr = 0,lenxp = config.preRender.length;pr <lenxp;pr++){%>
+<link rel="prerender" href="<%- config.prerender[pr] %>">
 <%}} %>
 
-<%if(theme.favicon){%><link rel="shortcut icon" href="<%- theme.favicon %>"><% }%>
+<%if(theme.favicon){%>
+<link rel="shortcut icon" href="<%- theme.favicon %>">
+<% }%>
 
 
 <!-- <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro"  rel="stylesheet" type="text/css">-->

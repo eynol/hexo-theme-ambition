@@ -304,34 +304,7 @@ h1,h2,h3,h4,h5{
 
 
 @import 'parts/_archive'
-//////////////////////////////////////////////////////////
-//           Pagination
-///////////////////////////////////////////////////////////
-.pagination
-    @extends .not-select;
-    margin: 2rem 0 3rem;
-    text-align: center;
-    ul
-        list-style: none;
-        display: inline-block;
-    li
-        display: inline-block;
-        margin: 5px;
-    a
-        position: relative;
-        text-decoration: underline;
-        link()
-    span
-        float: none;
-    .active
-        text-decoration: none;
-        pointer-events: none;
-    .disabled
-        cursor: default;
-        pointer-events: none;
-        text-decoration: line-through;
-
-
+@import 'parts/_pagination'
 @import 'parts/_footer'
 ////////////////////////////////////////////////////////////
 //              About

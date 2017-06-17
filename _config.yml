@@ -3,11 +3,8 @@
 menu:
   Home: /
   Archives: /archives/index.html
-  Tags: /tags/index.html
-  About: /about.html
 
-
-
+slogan: Stay hungry, <br>Be wise.
 #GitHub: https://github.com/vankai
 
 
