@@ -2,6 +2,11 @@
 
 
 <article class="center-wrapper article">
+    
+    <% page.photos.forEach(function(src){%>
+        <div class="gallery-frame"><img  src="<%- src %>"></div>
+    <%}) %>
+    
     <%- page.content %>
 </article>
 
