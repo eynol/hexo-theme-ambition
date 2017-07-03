@@ -7,8 +7,15 @@
     </div>
     <div class="nav-ul">
         <ul>
-        <% for (var i in theme.menu){ %>
-        <li><a class="main-nav-link" title="Jump to <%= i %>" href="<%- url_for(theme.menu[i]) %>"><%= i %></a></li>
+        <% 
+        var menu ;
+        if(config.menu){
+            menu=config.menu
+        }else{
+            menu=theme.menu
+        };
+        for (var i in menu){ %>
+        <li><a class="main-nav-link" title="Jump to <%= i %>" href="<%- url_for(menu[i]) %>"><%= i %></a></li>
         <% } %>
         <!-- <li><a class="main-nav-link close-btn"  href="javascript:;" onclick="open(location, '_self').close();">Exit</a></li>  this problem is not solved-->
         </ul>

@@ -45,6 +45,26 @@
     .archive-post-date
         color:color-text
 @media screen and (max-width:768px)
+    .archive-list-wrapper
+        .archive-list
+            margin: auto;
+            padding: 2rem;
+            li
+                position: relative;
+                margin-bottom: 10px
+    .archive-post-date
+        position: relative
+        display: block
+        margin: 2px 8px 
+        &:before
+            position: absolute
+            content: ""
+            top: -4px;
+            left: 0;
+            width: 3em;
+            height: 4px;
+            background-color: color-theme-dark
+
     .contents
         padding: 1rem;
         li span

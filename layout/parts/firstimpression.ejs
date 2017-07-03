@@ -1,6 +1,6 @@
 <section class="first-impression">
     <!-- the image path must be a absolute path, or it will fail when you have more than one index pages -->
-    <img class="impression-background" src="/img/yellow-metal@opt.jpg" alt="bg">
+    <img class="impression-background" src="<%- config.impressionImage? config.impressionImage : '/img/yellow-metal@opt.jpg' %>" alt="bg">
     <div class="impress-words">
       <!-- 曾因酒醉鞭名马，生怕情多累美人。 -->
         <h1><span><%- config.impression? config.impression : theme.slogan%></span></h1>

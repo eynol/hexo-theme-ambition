@@ -91,7 +91,10 @@
             transition 0.5s
             transform-origin center center
             background-color color-black
-        &.active
+    &.active 
+        position: fixed
+        z-index: 99
+        span
             background-color transparent
             &:before
                 top 0
@@ -110,47 +113,61 @@
     .nav-mobile-avator
         display: inline-block
     .nav-ul
-        position absolute
-        top 79px
+        z-index: -999
+        float none
+        position fixed
+        display none
+        top 0
         right 0
         left 0
-        display block
-        height 0
-        padding 0
+        bottom 0
+        padding 70px 0 0 
         margin 0
+        height 100%
+        opacity: 0
         overflow hidden
         list-style none
         text-align center
-        transition: height .5s
-        background-color white
-        box-shadow 0 4px 6px rgba(0, 0, 0, .3)
+        transition: opacity .5s
+        background-color rgba(254,230,0,.9)
         transform: translate3d(0,0,0)
+        animation-duration: .5s
+        animation-fill-mode: forwards
+        animation-timing-function: linear
         ul
-            position: absolute;
+            position: relative;
             width: 100%;    
         li
             display block
-            max-width 200px
             margin auto
-            text-align left
+            text-align center
             a
                 display: inline-block;
                 padding: 0.5rem 10px;
+                color white
+                font-size: 3em
+                no-link-effect()
             .close-btn
                 display: inline-block
+
         &.active
-            height: mobile-nav-height;
-            animation: menu-out .5s;
+            z-index: 88
+            opacity: 0
+            display: block
+            animation-name: menu-fade-in ;
+            li 
+                .close-btn
+                    position: fixed
     
 
-@keyframes menu-out {
+@keyframes menu-fade-in {
     0% {
-        height: 0;
+       display: block
     }
     5%{
-        height:0
+        opacity: 0
     }
     100% {
-        height: mobile-nav-height;
+        opacity: 1
     }
 }

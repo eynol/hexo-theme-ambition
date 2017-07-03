@@ -34,16 +34,16 @@
 (function () {
     //make top menu active
     var a = document.getElementById("js-toggle-nav"),
-        arr_span = a.firstElementChild.classList,
+        divClass = a.classList,
         arr_ul = a.nextElementSibling.classList;
 
     a.addEventListener("click", function () {
 
-        if (arr_span.contains('active')) {
-            arr_span.remove('active');
+        if (divClass.contains('active')) {
+            divClass.remove('active');
             arr_ul.remove('active');
         } else {
-            arr_span.add('active');
+            divClass.add('active');
             arr_ul.add('active');
         }
     });
