@@ -12,11 +12,10 @@ When you are offline, the blog pages you **have been visited** can be responed l
 
 # Feature
 
-- You could write your post in two languages, just add a `title2` member to your header of the post.
-
 - Your post's title may have a background image, just add a `cover` member to your header of the post.
 The value of cover is a URL `String`, and the image will full covered your title content's background. 
 If your image is a low resolution picture, you may add a `fit` memeber and set it to be `true` to your header of the post.
+
 
 
 # Install
@@ -70,7 +69,7 @@ title: Vankai
 subtitle:
 description:
 author: Tao Kai
-language: en
+language: 
 timezone:
 
 # URL
@@ -79,7 +78,7 @@ url: /
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
-  lang: en
+  lang: 
 
 # Directory
 source_dir: source
@@ -119,6 +118,13 @@ tag_map:
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 
+# DIY menu
+menu:
+  Home: /
+  Archives: /archives/index.html
+  Tags: /tags/index.html
+  About: /about.html
+
 
 # Mypages
 mypage:
@@ -148,7 +154,7 @@ pagination_dir: page
 # add some whitespaces to beautify what is your words look like.
 # If you don't like this , you may modify 'firstimpression.ejs' file and 
 # the firstimpression part of the 'style-common.styl' file.
-impression: 「倘只看书   <br>   便变成书橱」 
+impression: 倘只看书<br>便变成书橱
 
 
 # Your Email, 
@@ -174,6 +180,17 @@ prerender:
   - /about/
 
 
+#friends links
+friends:
+  - name: 逸晖
+    link: http://blog.54yh.cn/
+
+# your social links
+social:
+  github: https://github.com/vankai
+  coding: https://coding.net/u/tomato3
+
+
 # widget behavior
 # control the archives's page
 archive_type: 'yearly'
@@ -185,10 +202,17 @@ excerpt_link: Read More
 next_post: 下一篇
 prev_post: 上一篇
 
+# For rss
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
 
-# Duoshuo
-duoshuo: true
-duoshuo_name: vankaigithub
+jsonFeed:
+  limit: 25
+
 
 
 # Google Analytics
@@ -232,57 +256,14 @@ From now on, you can write your posts and generate a site with a default look.
 
 
 # **Attention！**
-This theme is using service worker to cache pages, and your blog must deployed with `https` scheme.
 
-And **every time** you update your blog's resources, such as wallpapers, javascript etc, you **have to** change the value of `PRECACHE` in `source/sw.js` file.
+**Every time** you modified this theme's resources, such as wallpapers, javascript etc, and you **have to** change the values of `PRECACHE` in `source/sw.js` file.
 So that the new version of your `PRECACHE_URLS` files can be update.
 
 If you don't want to using service worker, do following steps to disable it.
 
-## 1.Modify the manifest.json 
 
-Delete the `serviceworker` member of `manifest.json` file.
-```
-{
-  "short_name": "Vankai",
-  "name": "Vankai's Blog",
-  "start_url": "/index.html",
-  "display": "standalone",
-  "orientation": "portrait",
-  "theme_color": "#000",
-  "background_color": "#FFF",
-  "icons": [{
-      "src": "vankai_icon_1x.png",
-      "sizes": "48x48",
-      "type": "image/png"
-    },
-    {
-      "src": "vankai_icon_1_5x.png",
-      "sizes": "72x72",
-      "type": "image/png"
-    },
-    {
-      "src": "vankai_icon_2x.png",
-      "sizes": "96x96",
-      "type": "image/png"
-    },
-    {
-      "src": "vankai_icon_3x.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    },
-    {
-      "src": "vankai_icon_4x.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    }
-  ]
-
-}
-```
-
-
-## 2.Comment out the `service worker` part in `common.js` file.
+## 1.Comment out the `service worker` part in `common.js` file.
 
 ```
 ...
